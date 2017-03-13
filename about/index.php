@@ -14,26 +14,6 @@
         </section>
         <hr />
         <section class="row">
-            <div class="col-lg-4">
-                <h2>Latest Update</h2>
-                <a class="update-item" href="/updates">
-                    <div class="update-image">
-                    </div>
-                    <div class="update-content">
-                        <h4>Subcommittees tasked with new project initiatives</h4>
-                        <p class="logistics"></p>
-                        <p>
-                            This past semester was an exciting one for the Student Senate’s Student Life Committee! The committee, which...
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4">
-                <h2>Upcoming Events</h2>
-            </div>
-            <div class="col-lg-4">
-                <h2>Recent Actions</h2>
-            </div>
         </section>
     </main>
     <?php require_once '../partials/footer.php' ?>

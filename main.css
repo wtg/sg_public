@@ -31,6 +31,11 @@ h1 {
     /*box-shadow: 0 1px 2px #ddd;*/
 }
 
+.fixed.inverse {
+    background-color: rgba(171, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(196, 0, 0, 0.9);
+}
+
 header {
     margin: 0 auto;
     padding: 1.5rem 0;
@@ -47,6 +52,10 @@ header {
     margin-left: 0.75rem;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
+}
+
+.inverse .logo {
+    background-image: url('icon-inverse.svg');
 }
 
 ul.right-nav {
@@ -76,6 +85,15 @@ ul.right-nav li a {
     box-sizing: content-box;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
+}
+
+.inverse ul.right-nav li a {
+    color: white;
+}
+
+.inverse ul.right-nav li a:hover, .inverse ul.right-nav li.active a {
+    color: #c40000;
+    background-color: white;
 }
 
 ul.right-nav li a:hover, ul.right-nav li.active a {
@@ -115,7 +133,7 @@ section.banner .content {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(141,0,0,0.5);
     color: white;
     padding: 2rem 2rem 3rem 2rem;
 }
@@ -142,7 +160,7 @@ main h2 {
     margin-top: 0;
 }
 
-a.update-item {
+a.update-item, a.person-item {
     display: block;
     box-sizing: padding-box;
     /*box-shadow: 1px 1px 2px #ddd;*/
@@ -152,15 +170,15 @@ a.update-item {
     color: #333333;
 }
 
-a.update-item:hover {
+a.update-item:hover, a.person-item:hover {
     text-decoration: none;
     color: #333333;
     /*box-shadow: 2px 2px 2px #eee;*/
 }
 
-a.update-item .update-image {
+a.update-item .update-image, a.person-item .person-image {
     height: 14rem;
-    background: url('http://stugov.union.rpi.edu/studentgovernment/wp-content/uploads/2015/03/20140506_Banner_0001.jpg');
+    background: url('http://thevaultbicycleshop.com/wp-content/themes/the-vault/images/blank-profile.png');
     background-position: center;
     background-size: cover;
     display: block;
@@ -168,25 +186,58 @@ a.update-item .update-image {
     border-top-right-radius: 0.25rem;
 }
 
-a.update-item .update-content {
-    min-height: 8rem;
+a.update-item .update-content, a.person-item .person-content {
     background-color: #ededed;
     padding: 1rem;
     border-bottom-left-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
 }
 
-a.update-item .update-content h4 {
+a.update-item .update-content {
+    min-height: 8rem;
+}
+
+a.update-item .update-content h4, a.person-item .person-content h4 {
     margin-top: 0;
     margin-bottom: 0.5rem;
     color: #c40000;
-    font-size: 1rem;
     line-height: 1;
 }
 
+a.update-item .update-content h4 {
+    font-size: 1rem;
+}
+
+a.person-item .person-content h4 {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+a.person-item .person-content p.position {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.col-lg-2 a.person-item .person-image {
+    height: 10rem;
+    background-position: top;
+}
+
+.col-lg-2 a.person-item .person-content h4 {
+    font-size: 1rem;
+}
+
+.col-lg-2 a.person-item .person-content p.position {
+    font-size: 0.85rem;
+}
+
 footer {
-    border-top: 1px solid #eee;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(145, 0, 0, 0.8);
     padding-top: 2rem;
+    background-color: rgba(171, 0, 0, 0.8);
+    color: white;
 }
 
 footer h3 {
@@ -199,7 +250,19 @@ footer .primary-footer {
 }
 
 footer .secondary-footer {
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(145, 0, 0, 1);
     font-size: 8pt;
     color: #666;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgba(145, 0, 0, 0.8);
+}
+
+footer .secondary-footer .container {
+    font-size: 10pt;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: white;
 }

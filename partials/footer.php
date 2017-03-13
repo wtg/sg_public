@@ -21,9 +21,9 @@
         </div>
     </div>
     <div class="secondary-footer">
-        <p class="container">
+        <div class="container">
             Copyright &copy; 2017 - Rensselaer Union
-        </p>
+        </div>
     </div>
 </footer>
 

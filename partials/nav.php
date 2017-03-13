@@ -1,7 +1,7 @@
 <?php
 
 function navItem($label, $url) {
-    if($_SERVER['REQUEST_URI'] == $url) {
+    if(strncmp ($_SERVER['REQUEST_URI'], $url, strlen($url)) == 0) {
         return "<li class=\"active\"><a>$label</a></li>";
     } else {
         return "<li><a href=\"$url\">$label</a></li>";
@@ -10,7 +10,7 @@ function navItem($label, $url) {
 
 ?>
 
-<div class="fixed">
+<div class="fixed inverse">
     <header class="container">
         <ul class="right-nav">
             <?=navItem('About', '/about')?>

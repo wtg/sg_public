@@ -14,7 +14,7 @@
             <div class="col-lg-4">
                 <h2>Latest Update</h2>
                 <a class="update-item" href="/updates">
-                    <div class="update-image">
+                    <div class="update-image" style="background-image: url('http://stugov.union.rpi.edu/studentgovernment/wp-content/uploads/2015/03/20140506_Banner_0001.jpg')">
                     </div>
                     <div class="update-content">
                         <h4>Subcommittees tasked with new project initiatives</h4>
