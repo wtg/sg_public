@@ -1,0 +1,22 @@
+{
+  "name": "interface_design_project",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justetz/interface_design_project.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justetz/interface_design_project/issues"
+  },
+  "homepage": "https://github.com/justetz/interface_design_project#readme",
+  "dependencies": {
+    "node-php-server": "^0.1.2"
+  }
+}

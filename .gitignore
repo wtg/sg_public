@@ -5,3 +5,5 @@
 styles/main.css
 styles/main.min.css
 .sass-cache
+
+node_modules/
