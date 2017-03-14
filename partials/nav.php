@@ -13,6 +13,10 @@ function navItem($label, $url) {
 <nav class="nav-fixed">
     <div class="container">
         <a href="/" class="logo"></a>
+        <div class="nav-expand" id="expand">
+            <i class="fa fa-bars"></i>
+            <i class="fa fa-close"></i>
+        </div>
         <ul class="right-nav">
             <?=navItem('About', '/about')?>
             <?=navItem('People', '/people')?>

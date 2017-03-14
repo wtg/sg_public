@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="primary-footer container">
         <div class="row">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-sm-6">
                 <h3>Test</h3>
                 <ul>
                     <li>
@@ -9,13 +9,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-sm-6">
                 <h3>Test</h3>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-sm-6">
                 <h3>Test</h3>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-sm-6">
                 <h3>Test</h3>
             </div>
         </div>

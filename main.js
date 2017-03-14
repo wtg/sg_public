@@ -12,4 +12,9 @@ jQuery(document).ready(function($) {
 			$('nav').removeClass('shrink');
 		}
 	});
+
+	$('#expand').click(function () {
+		$('.right-nav').toggleClass('expanded');
+		$('#expand').toggleClass('expanded');
+	});
 });

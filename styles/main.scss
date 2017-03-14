@@ -4,6 +4,7 @@
 $main-red: #c40000;
 $main-gray: #eeeeee;
 $text-color: mix(#333333, $main-red, 80%);
+$small-breakpoint: 991px;
 
 @mixin lato-font() {
     font-family: 'Lato', sans-serif;
@@ -57,6 +58,8 @@ h1 {
             list-style-type: none;
             margin: 0;
             padding: 0;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
 
             li {
                 display: inline;
@@ -86,28 +89,37 @@ h1 {
                         box-sizing: content-box;
                     }
                 }
+
+                &.active a {
+                    background-color: $main-red;
+                    border-radius: 0.2rem;
+                    color: white;
+                    text-decoration: none;
+                    box-sizing: content-box;
+                }
             }
 
-            li.active a {
-                background-color: $main-red;
-                border-radius: 0.2rem;
-                color: white;
-                text-decoration: none;
-                box-sizing: content-box;
-            }
-
-            @media screen and (max-width: 991px) {
+            @media screen and (max-width: $small-breakpoint) {
                 clear: both;
                 float: none;
                 display: none;
+                margin: 0 auto;
+                text-align: center;
 
                 &.expanded {
                     display: block;
                 }
 
                 li {
-                    display: block;
+                    display: inline-block;
+                    width: 30%;
                     text-align: center;
+                    font-size: 22px;
+
+                    a {
+                        padding: 1.5rem;
+                        margin: 2rem 0.25rem;
+                    }
                 }
             }
         }
@@ -123,6 +135,39 @@ h1 {
             -webkit-transition: all 0.3s ease;
             transition: all 0.3s ease;
         }
+
+        .nav-expand {
+            display: none;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+
+            .fa.fa-bars {
+                display: inline-block;
+            }
+
+            .fa.fa-close {
+                display: none;
+            }
+
+            &.expanded {
+                .fa.fa-bars {
+                    display: none;
+                }
+
+                .fa.fa-close {
+                    display: inline-block;
+                }
+            }
+
+            @media screen and (max-width: $small-breakpoint) {
+                float: right;
+                display: block;
+                margin-right: 0.75rem;
+                color: $main-red;
+                font-size: 3rem;
+                line-height: 1;
+            }
+        }
     }
 
     &.shrink {
@@ -136,9 +181,18 @@ h1 {
                 height: 2.5rem;
             }
 
+            .nav-expand {
+                font-size: 2.5rem;
+            }
+
             ul.right-nav li a {
                 margin: 0.375rem 0.25rem;
                 padding: 0.375rem 0.75rem;
+
+                @media screen and (max-width: $small-breakpoint) {
+                    padding: 1rem;
+                    margin: 2rem 0.1rem;
+                }
             }
         }
     }
