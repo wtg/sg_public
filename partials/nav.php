@@ -10,8 +10,9 @@ function navItem($label, $url) {
 
 ?>
 
-<div class="fixed inverse">
-    <header class="container">
+<nav class="nav-fixed">
+    <div class="container">
+        <a href="/" class="logo"></a>
         <ul class="right-nav">
             <?=navItem('About', '/about')?>
             <?=navItem('People', '/people')?>
@@ -21,6 +22,6 @@ function navItem($label, $url) {
             <?=navItem('Actions', '/actions')?>
             <?=navItem('Get Involved!', '/involved')?>
         </ul>
-        <a href="/" class="logo"></a>
-    </header>
-</div>
+        <div class="clearfix"></div>
+    </div>
+</nav>

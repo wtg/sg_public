@@ -39,7 +39,7 @@
                             </div>
                             <div class="person-content">
                                 <h4>Chip Kirchner</h4>
-                                <p class="position">127<sup>st</sup> President of the Union</p>
+                                <p class="position">127<sup>th</sup> President of the Union</p>
                             </div>
                         </a>
                     </div>
@@ -81,45 +81,45 @@
                     </div>
                 </section>
                 <section class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-fifth col-md-6">
                         <a class="person-item" href="/people/senate">
-                            <div class="person-image">
+                            <div class="person-image oblong">
                             </div>
                             <div class="person-content">
                                 <h4>Student Senate</h4>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-fifth col-md-6">
                         <a class="person-item" href="/people/eboard">
-                            <div class="person-image">
+                            <div class="person-image oblong">
                             </div>
                             <div class="person-content">
                                 <h4>Executive Board</h4>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-fifth col-md-6">
                         <a class="person-item" href="/people/jboard">
-                            <div class="person-image">
+                            <div class="person-image oblong">
                             </div>
                             <div class="person-content">
                                 <h4>Judicial Board</h4>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-lg-offset-2 col-md-6 col-md-offset-0">
+                    <div class="col-lg-fifth col-md-6">
                         <a class="person-item" href="/people/uc">
-                            <div class="person-image">
+                            <div class="person-image oblong">
                             </div>
                             <div class="person-content">
                                 <h4>Undergraduate Council</h4>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-lg-offset-0 col-md-6 col-md-offset-3">
+                    <div class="col-lg-fifth col-lg-offset-0 col-md-6 col-md-offset-3">
                         <a class="person-item" href="/people/gc">
-                            <div class="person-image">
+                            <div class="person-image oblong">
                             </div>
                             <div class="person-content">
                                 <h4>Graduate Council</h4>

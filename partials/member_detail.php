@@ -6,6 +6,33 @@
                 echo "
                     <div class='col-lg-4'>
                         <img class='img-responsive' src='$m[image]' />
+                        <table class='positions-table current'>
+                            <tr>
+                                <td>151<sup>st</sup> Grand Marshal</td>
+                                <td>April 2016&ndash;present</td>
+                            </tr>
+                        </table>
+                        <table class='positions-table'>
+                            <thead>
+                                <tr>
+                                    <td colspan='2'>Past Roles:</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Class of 2017 Senator</td>
+                                    <td>September 2013&ndash;April 2016</td>
+                                </tr>
+                                <tr>
+                                    <td>SLC Chairman</td>
+                                    <td>May 2015&ndash;April 2016</td>
+                                </tr>
+                                <tr>
+                                    <td>RnE Chairman</td>
+                                    <td>February 2015&ndash;November 2015</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class='col-lg-8'>
                         <h1 style='margin-top: 0; line-height: 1'>$m[name]</h1>

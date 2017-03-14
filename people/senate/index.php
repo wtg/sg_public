@@ -6,7 +6,7 @@
         foreach($members as $m) {
             $html .= "
                 <div class=\"col-lg-2\">
-                    <a class=\"person-item\" href=\"/updates\">
+                    <a class=\"person-item small\" href=\"/updates\">
                         <div class=\"person-image\" " . ($m['image'] != '' ? "style=\"background-image: url('$m[image]')\"" : "") . "></div>
                         <div class=\"person-content\">
                             <h4>$m[name]</h4>

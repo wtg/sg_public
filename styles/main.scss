@@ -1,0 +1,400 @@
+@import "bootstrap.scss";
+@import "fifths.scss";
+
+$main-red: #c40000;
+$main-gray: #eeeeee;
+$text-color: mix(#333333, $main-red, 80%);
+
+@mixin lato-font() {
+    font-family: 'Lato', sans-serif;
+}
+
+@mixin palatino-font() {
+    font-family: 'Palatino', serif;
+}
+
+html {
+    @include lato-font();
+    font-size: 100%;
+}
+
+body {
+    @include lato-font();
+    margin: 0;
+    color: $text-color;
+}
+
+p {
+    @include palatino-font();
+    font-size: 0.9rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+}
+
+.nav-fixed {
+    background-color: rgba(white, 0.97);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid $main-gray;
+    z-index: 100;
+    /*box-shadow: 0 1px 2px #ddd;*/
+
+    .container {
+        margin: 0 auto;
+        padding: 1.5rem 0;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+
+        ul.right-nav {
+            float: right;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: inline;
+                height: 3rem;
+                font-size: 16px;
+
+                a {
+                    display: inline-block;
+                    min-width: 4rem;
+                    text-align: center;
+                    text-decoration: none;
+                    color: $main-red;
+                    font-weight: bold;
+                    margin: 0.45rem 0.25rem;
+                    padding: 0.55rem 0.75rem;
+                    height: 1rem;
+                    line-height: 1rem;
+                    box-sizing: content-box;
+                    -webkit-transition: all 0.3s ease;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: $main-red;
+                        border-radius: 0.2rem;
+                        color: white;
+                        text-decoration: none;
+                        box-sizing: content-box;
+                    }
+                }
+            }
+
+            li.active a {
+                background-color: $main-red;
+                border-radius: 0.2rem;
+                color: white;
+                text-decoration: none;
+                box-sizing: content-box;
+            }
+
+            @media screen and (max-width: 991px) {
+                clear: both;
+                float: none;
+                display: none;
+
+                &.expanded {
+                    display: block;
+                }
+
+                li {
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+
+        .logo {
+            float: left;
+            display: block;
+            width: 3rem;
+            height: 3rem;
+            background-image: url('/icon.svg');
+            background-size: contain;
+            margin-left: 0.75rem;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+    }
+
+    &.shrink {
+        @extend .nav-fixed;
+
+        .container {
+            padding: 0.9rem 0;
+
+            .logo {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            ul.right-nav li a {
+                margin: 0.375rem 0.25rem;
+                padding: 0.375rem 0.75rem;
+            }
+        }
+    }
+}
+
+.nav-inverse {
+    @extend .nav-fixed;
+    background-color: rgba(darken($main-red, 10%), 0.8);
+    border-bottom: 1px solid rgba($main-red, 0.9);
+
+    .container {
+        .logo {
+            background-image: url('/icon-inverse.svg');
+        }
+
+        ul.right-nav {
+            li a {
+                color: white;
+
+                &:hover {
+                    color: $main-red;
+                    background-color: white;
+                }
+            }
+
+            li.active a {
+                color: $main-red;
+                background-color: white;
+            }
+        }
+    }
+}
+
+section.banner {
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    height: 30rem;
+    background-size: cover;
+    background-position: center;
+    background-image: url('http://stugov.union.rpi.edu/studentgovernment/wp-content/uploads/2015/03/20140516_Banner_0002.jpg');
+
+    .content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(darken($main-red, 10%), 0.5);
+        color: white;
+        padding: 2rem 2rem 3rem 2rem;
+    }
+
+    * {
+        margin: 0;
+    }
+
+    p {
+        @include lato-font();
+        margin-top: 0.1rem;
+        font-size: 1rem;
+    }
+}
+
+main {
+    max-width: 1500px;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 7rem;
+
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 0;
+    }
+}
+
+a.generic-item {
+    display: block;
+    box-sizing: padding-box;
+    /*box-shadow: 1px 1px 2px #ddd;*/
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #333333;
+
+    &:hover {
+        text-decoration: none;
+        color: #333333;
+        /*box-shadow: 2px 2px 2px $main-gray;*/
+    }
+
+    .item-image {
+        height: 14rem;
+        background-color: #aaa;
+        background-position: center;
+        background-size: cover;
+        display: block;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+    }
+
+    .item-content {
+        background-color: #ededed;
+        padding: 1rem;
+        border-bottom-left-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: $main-red;
+            line-height: 1;
+        }
+    }
+}
+
+a.update-item {
+    @extend .generic-item;
+
+    .update-image {
+        @extend .item-image;
+    }
+
+    .update-content {
+        @extend .item-content;
+        min-height: 8rem;
+
+        h4 {
+            font-size: 1rem;
+        }
+    }
+}
+
+a.person-item {
+    @extend .generic-item;
+
+    .person-image {
+        @extend .item-image;
+        background-image: url('http://thevaultbicycleshop.com/wp-content/themes/the-vault/images/blank-profile.png');
+
+        &.oblong {
+            background-image: none;
+            height: 10rem;
+        }
+    }
+
+    .person-content {
+        @extend .item-content;
+        text-align: center;
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        p.position {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+    }
+
+    &.small {
+        .person-image {
+            height: 10rem;
+            background-position: top;
+        }
+
+        .person-content {
+            h4 {
+                font-size: 1rem;
+            }
+
+            p.position {
+                font-size: 0.85rem;
+            }
+        }
+    }
+}
+
+.positions-table {
+    width: 100%;
+    margin-top: 0.7rem;
+
+    &.current {
+        margin-top: 1rem;
+        font-style: italic;
+        font-size: 1rem;
+
+        td:first-child {
+            text-align: left;
+            font-weight: bold;
+        }
+    }
+
+    thead td {
+        padding-top: 0.7rem;
+        border-top: 0.5px solid lighten($main-red, 30%);
+        text-align: left;
+        font-weight: bold;
+        // padding-top: 0.7rem;
+    }
+
+    td {
+        padding-bottom: 0.1rem;
+    }
+
+    td:nth-child(2) {
+        text-align: right;
+    }
+}
+
+.footer {
+    @include lato-font();
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid $main-gray;
+    background-color: $main-gray;
+
+    h1, h2, h3 {
+        margin-top: 0;
+        line-height: 1;
+        color: $main-red;
+    }
+
+    .primary-footer {
+        margin-bottom: 1.5rem;
+    }
+
+    .secondary-footer {
+        font-size: 8pt;
+        color: darken($main-gray, 50%);
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: darken($main-gray, 5%);
+
+        .container {
+            font-size: 10pt;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+}
+
+.footer-inverse {
+    @extend .footer;
+    border-top: 1px solid darken($main-red, 17%);
+    background-color: rgba(darken($main-red, 10%), 0.8);
+    color: white;
+
+    h1, h2, h3 {
+        color: white;
+    }
+
+    .secondary-footer {
+        border-top: 1px solid darken($main-red, 17%);
+        background-color: darken($main-red, 15%);
+        color: white;
+    }
+}
