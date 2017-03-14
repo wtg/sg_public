@@ -8,7 +8,7 @@
         <?php
             $urlComponents = explode('/', $_SERVER['REQUEST_URI']);
 
-            if(count($urlComponents) == 3) {
+            if(count($urlComponents) == 3 && strlen($urlComponents[2]) > 0) {
                 $name = ucwords(str_replace("-"," ",$urlComponents[2]));
                 require_once '../partials/member_detail.php';
             } else { ?>

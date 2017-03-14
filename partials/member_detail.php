@@ -9,7 +9,7 @@
                     </div>
                     <div class='col-lg-8'>
                         <h1 style='margin-top: 0; line-height: 1'>$m[name]</h1>
-                        <h2>151<sup>st</sup> Grand Marshal</h2>
+                        <h2>$m[position]</h2>
                         <p class='lead'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus ligula eu convallis elementum. Aenean commodo ligula a augue bibendum consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec hendrerit, lectus quis sodales imperdiet, augue ligula tempor turpis, eu luctus nibh lacus in odio. Morbi pharetra mollis lorem, sit amet tempus dolor dictum in. Curabitur feugiat feugiat efficitur. Etiam faucibus efficitur ipsum, laoreet ultricies tellus iaculis non. Sed ut massa eu ante ultrices consectetur ut elementum mauris. Phasellus pretium dui eget tortor suscipit, at varius massa malesuada.
                         </p>
