@@ -320,7 +320,7 @@
                 <hr>
 
                 <h2>Article XII: Petitions And Referenda</h2>
-                <h3>Section 1. Referendum.</p>
+                <h3>Section 1. Referendum.</h3>
                 <ol>
                     <li>A referendum vote, on any matter except amendment of the Union Constitution, shall be held whenever the Student Senate:
                         <ol type="a">
