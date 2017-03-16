@@ -3,7 +3,7 @@
 <?php require_once 'partials/head.php' ?>
 <body>
     <?php require_once 'partials/nav.php'; ?>
-    <main class="container">
+    <main class="container landing">
         <section class="banner">
             <div class="content">
                 <h1>Exciting new update is coming soon!</h1>

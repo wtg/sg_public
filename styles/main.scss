@@ -34,7 +34,12 @@ h1 {
     font-size: 2.5rem;
 }
 
-.lead {
+h2 {
+    font-size: 2rem;
+}
+
+.lead, ol, ul {
+    @extend p;
     font-size: 1.25rem;
 }
 
@@ -54,6 +59,7 @@ h1 {
         transition: all 0.3s ease;
 
         ul.right-nav {
+            @include lato-font();
             float: right;
             list-style-type: none;
             margin: 0;
@@ -226,6 +232,130 @@ h1 {
     }
 }
 
+.org-chart {
+    @extend .row;
+
+    .chart-panel {
+        p {
+            line-height: 1;
+            margin: 0;
+            text-align: center;
+
+            i.fa {
+                font-size: 8rem;
+                margin: 1.5rem 0;
+                color: $main-red;
+            }
+        }
+
+        h3 {
+            @include palatino-font();
+            line-height: 1;
+            text-align: center;
+            margin: 0;
+            font-size: 1.35rem;
+        }
+    }
+
+    .constitution-panel {
+        @extend .chart-panel;
+
+        h3 {
+            padding-bottom: 3rem;
+            color: $text-color;
+        }
+        &:hover {
+            color: $text-color;
+            text-decoration: none;
+        }
+
+        &:after {
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+            left: -50%;
+            content: '';
+            height: 18%;
+            width: 100%;
+            border-right: 4px solid $main-gray;
+
+            @media screen and (max-width: 991px) {
+                height: 593%;
+                bottom: -593%;
+            }
+        }
+    }
+
+    .govt-body-panel {
+        @extend .chart-panel;
+
+        i.fa {
+            padding-top: 3rem;
+        }
+
+        &:before {
+            position: absolute;
+            z-index: -1;
+            top: 0%;
+            content: '';
+            height: 50%;
+            width: 100%;
+            border-top: 4px solid $main-gray;
+
+            @media screen and (max-width: $small-breakpoint) {
+                border-top: 0;
+                border-bottom: 4px solid $main-gray;
+                left: -50%;
+                width: 65%;
+                top: 10%;
+            }
+        }
+
+        @media screen and (min-width: $small-breakpoint + 1px) {
+            &.first:before {
+                left: 50%;
+            }
+
+            &.last:before {
+                right: 50%;
+            }
+
+            &:after {
+                position: absolute;
+                z-index: -1;
+                top: 0%;
+                left: -50%;
+                content: '';
+                height: 15%;
+                width: 100%;
+                border-right: 4px solid $main-gray;
+            }
+        }
+    }
+
+    .leader-panel {
+        @extend .chart-panel;
+         p {
+             margin-top: 0.75rem;
+             padding-top: 0.75rem;
+             border-top: 0.5px solid $main-gray;
+
+             @media screen and (max-width: $small-breakpoint) {
+                 border-top: none;
+             }
+         }
+
+         h3 {
+             margin-top: 0.5rem;
+             font-size: 1.2rem;
+         }
+
+         @media screen and (min-width: $small-breakpoint + 1px) {
+             padding-bottom: 1.5rem;
+         }
+    }
+}
+
 section.banner {
     position: relative;
     margin: 0 auto;
@@ -257,14 +387,29 @@ section.banner {
 }
 
 main {
-    max-width: 1500px;
-    margin: 0 auto;
-    background-color: white;
+    // max-width: 1500px;
+    // margin: 0 auto;
+    // background-color: white;
     margin-top: 7rem;
 
-    h2 {
+    &.landing h2 {
         font-size: 1.5rem;
         margin-top: 0;
+    }
+
+    .constitution {
+        h2 {
+            @include palatino-font();
+            font-size: 1.4rem;
+            text-align: center;
+        }
+        h3 {
+            @extend h3;
+            @include palatino-font();
+            font-size: 1.3rem;
+            color: lighten($text-color, 7%);
+            font-variant: small-caps;
+        }
     }
 }
 
@@ -366,6 +511,31 @@ a.person-item {
             p.position {
                 font-size: 0.85rem;
             }
+        }
+    }
+}
+
+a.committee-item {
+    @extend .generic-item;
+
+    .committee-image {
+        @extend .item-image;
+    }
+
+    .committee-content {
+        @extend .item-content;
+        text-align: center;
+        min-height: 7rem;
+
+        h4 {
+            font-size: 1.2rem;
+            min-height: 2.4rem;
+            vertical-align: middle;
+        }
+
+        p.position {
+            margin-bottom: 0;
+            font-size: 1.05rem;
         }
     }
 }

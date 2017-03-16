@@ -387,7 +387,7 @@ hr {
   padding-right: 15px;
 }
 
-.row {
+.row, .org-chart {
   margin-left: -15px;
   margin-right: -15px;
 }
@@ -1091,7 +1091,9 @@ hr {
 .container-fluid:before,
 .container-fluid:after,
 .row:before,
-.row:after {
+.org-chart:before,
+.row:after,
+.org-chart:after {
   content: " ";
   display: table;
 }
@@ -1099,7 +1101,8 @@ hr {
 .clearfix:after,
 .container:after,
 .container-fluid:after,
-.row:after {
+.row:after,
+.org-chart:after {
   clear: both;
 }
 
@@ -1431,7 +1434,7 @@ body {
   color: #502929;
 }
 
-p {
+p, .lead, ol, ul {
   font-family: 'Palatino', serif;
   font-size: 0.9rem;
 }
@@ -1440,7 +1443,11 @@ h1 {
   font-size: 2.5rem;
 }
 
-.lead {
+h2 {
+  font-size: 2rem;
+}
+
+.lead, ol, ul {
   font-size: 1.25rem;
 }
 
@@ -1462,6 +1469,7 @@ h1 {
 }
 
 .nav-fixed .container ul.right-nav, .nav-inverse .container ul.right-nav {
+  font-family: 'Lato', sans-serif;
   float: right;
   list-style-type: none;
   margin: 0;
@@ -1624,6 +1632,120 @@ h1 {
   background-color: white;
 }
 
+.org-chart .chart-panel p, .org-chart .constitution-panel p, .org-chart .govt-body-panel p, .org-chart .leader-panel p, .org-chart .chart-panel .lead, .org-chart .constitution-panel .lead, .org-chart .govt-body-panel .lead, .org-chart .leader-panel .lead, .org-chart .chart-panel ol, .org-chart .constitution-panel ol, .org-chart .govt-body-panel ol, .org-chart .leader-panel ol, .org-chart .chart-panel ul, .org-chart .constitution-panel ul, .org-chart .govt-body-panel ul, .org-chart .leader-panel ul {
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+}
+
+.org-chart .chart-panel p i.fa, .org-chart .constitution-panel p i.fa, .org-chart .govt-body-panel p i.fa, .org-chart .leader-panel p i.fa, .org-chart .chart-panel .lead i.fa, .org-chart .constitution-panel .lead i.fa, .org-chart .govt-body-panel .lead i.fa, .org-chart .leader-panel .lead i.fa, .org-chart .chart-panel ol i.fa, .org-chart .constitution-panel ol i.fa, .org-chart .govt-body-panel ol i.fa, .org-chart .leader-panel ol i.fa, .org-chart .chart-panel ul i.fa, .org-chart .constitution-panel ul i.fa, .org-chart .govt-body-panel ul i.fa, .org-chart .leader-panel ul i.fa {
+  font-size: 8rem;
+  margin: 1.5rem 0;
+  color: #c40000;
+}
+
+.org-chart .chart-panel h3, .org-chart .constitution-panel h3, .org-chart .govt-body-panel h3, .org-chart .leader-panel h3 {
+  font-family: 'Palatino', serif;
+  line-height: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.org-chart .constitution-panel h3 {
+  padding-bottom: 3rem;
+  color: #502929;
+}
+
+.org-chart .constitution-panel:hover {
+  color: #502929;
+  text-decoration: none;
+}
+
+.org-chart .constitution-panel:after {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: -50%;
+  content: '';
+  height: 18%;
+  width: 100%;
+  border-right: 4px solid #eeeeee;
+}
+
+@media screen and (max-width: 991px) {
+  .org-chart .constitution-panel:after {
+    height: 593%;
+    bottom: -593%;
+  }
+}
+
+.org-chart .govt-body-panel i.fa {
+  padding-top: 3rem;
+}
+
+.org-chart .govt-body-panel:before {
+  position: absolute;
+  z-index: -1;
+  top: 0%;
+  content: '';
+  height: 50%;
+  width: 100%;
+  border-top: 4px solid #eeeeee;
+}
+
+@media screen and (max-width: 991px) {
+  .org-chart .govt-body-panel:before {
+    border-top: 0;
+    border-bottom: 4px solid #eeeeee;
+    left: -50%;
+    width: 65%;
+    top: 10%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .org-chart .govt-body-panel.first:before {
+    left: 50%;
+  }
+  .org-chart .govt-body-panel.last:before {
+    right: 50%;
+  }
+  .org-chart .govt-body-panel:after {
+    position: absolute;
+    z-index: -1;
+    top: 0%;
+    left: -50%;
+    content: '';
+    height: 15%;
+    width: 100%;
+    border-right: 4px solid #eeeeee;
+  }
+}
+
+.org-chart .leader-panel p, .org-chart .leader-panel .lead, .org-chart .leader-panel ol, .org-chart .leader-panel ul {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 0.5px solid #eeeeee;
+}
+
+@media screen and (max-width: 991px) {
+  .org-chart .leader-panel p, .org-chart .leader-panel .lead, .org-chart .leader-panel ol, .org-chart .leader-panel ul {
+    border-top: none;
+  }
+}
+
+.org-chart .leader-panel h3 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .org-chart .leader-panel {
+    padding-bottom: 1.5rem;
+  }
+}
+
 section.banner {
   position: relative;
   margin: 0 auto;
@@ -1648,25 +1770,35 @@ section.banner * {
   margin: 0;
 }
 
-section.banner p {
+section.banner p, section.banner .lead, section.banner ol, section.banner ul {
   font-family: 'Lato', sans-serif;
   margin-top: 0.1rem;
   font-size: 1rem;
 }
 
 main {
-  max-width: 1500px;
-  margin: 0 auto;
-  background-color: white;
   margin-top: 7rem;
 }
 
-main h2 {
+main.landing h2 {
   font-size: 1.5rem;
   margin-top: 0;
 }
 
-a.generic-item, a.update-item, a.person-item {
+main .constitution h2 {
+  font-family: 'Palatino', serif;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+main .constitution h3 {
+  font-family: 'Palatino', serif;
+  font-size: 1.3rem;
+  color: #683535;
+  font-variant: small-caps;
+}
+
+a.generic-item, a.update-item, a.person-item, a.committee-item {
   display: block;
   box-sizing: padding-box;
   /*box-shadow: 1px 1px 2px #ddd;*/
@@ -1676,13 +1808,13 @@ a.generic-item, a.update-item, a.person-item {
   color: #333333;
 }
 
-a.generic-item:hover, a.update-item:hover, a.person-item:hover {
+a.generic-item:hover, a.update-item:hover, a.person-item:hover, a.committee-item:hover {
   text-decoration: none;
   color: #333333;
   /*box-shadow: 2px 2px 2px $main-gray;*/
 }
 
-a.generic-item .item-image, a.update-item .item-image, a.person-item .item-image, a.update-item .update-image, a.person-item .person-image {
+a.generic-item .item-image, a.update-item .item-image, a.person-item .item-image, a.committee-item .item-image, a.update-item .update-image, a.person-item .person-image, a.committee-item .committee-image {
   height: 14rem;
   background-color: #aaa;
   background-position: center;
@@ -1692,14 +1824,14 @@ a.generic-item .item-image, a.update-item .item-image, a.person-item .item-image
   border-top-right-radius: 0.25rem;
 }
 
-a.generic-item .item-content, a.update-item .item-content, a.person-item .item-content, a.update-item .update-content, a.person-item .person-content {
+a.generic-item .item-content, a.update-item .item-content, a.person-item .item-content, a.committee-item .item-content, a.update-item .update-content, a.person-item .person-content, a.committee-item .committee-content {
   background-color: #ededed;
   padding: 1rem;
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
 
-a.generic-item .item-content h4, a.update-item .item-content h4, a.person-item .item-content h4, a.update-item .update-content h4, a.person-item .person-content h4 {
+a.generic-item .item-content h4, a.update-item .item-content h4, a.person-item .item-content h4, a.committee-item .item-content h4, a.update-item .update-content h4, a.person-item .person-content h4, a.committee-item .committee-content h4 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   color: #c40000;
@@ -1731,7 +1863,7 @@ a.person-item .person-content h4 {
   font-size: 1.2rem;
 }
 
-a.person-item .person-content p.position {
+a.person-item .person-content p.position, a.person-item .person-content .position.lead, a.person-item .person-content ol.position, a.person-item .person-content ul.position {
   margin-bottom: 0;
   font-size: 0.95rem;
 }
@@ -1745,8 +1877,24 @@ a.person-item.small .person-content h4 {
   font-size: 1rem;
 }
 
-a.person-item.small .person-content p.position {
+a.person-item.small .person-content p.position, a.person-item.small .person-content .position.lead, a.person-item.small .person-content ol.position, a.person-item.small .person-content ul.position {
   font-size: 0.85rem;
+}
+
+a.committee-item .committee-content {
+  text-align: center;
+  min-height: 7rem;
+}
+
+a.committee-item .committee-content h4 {
+  font-size: 1.2rem;
+  min-height: 2.4rem;
+  vertical-align: middle;
+}
+
+a.committee-item .committee-content p.position, a.committee-item .committee-content .position.lead, a.committee-item .committee-content ol.position, a.committee-item .committee-content ul.position {
+  margin-bottom: 0;
+  font-size: 1.05rem;
 }
 
 .positions-table {
@@ -1788,7 +1936,7 @@ a.person-item.small .person-content p.position {
   background-color: #eeeeee;
 }
 
-.footer h1, .footer-inverse h1, .footer h2, .footer-inverse h2, .footer h3, .footer-inverse h3 {
+.footer h1, .footer-inverse h1, .footer h2, .footer-inverse h2, .footer h3, .footer-inverse h3, .footer main .constitution h3, main .constitution .footer h3, .footer-inverse main .constitution h3, main .constitution .footer-inverse h3 {
   margin-top: 0;
   line-height: 1;
   color: #c40000;
@@ -1820,7 +1968,7 @@ a.person-item.small .person-content p.position {
   color: white;
 }
 
-.footer-inverse h1, .footer-inverse h2, .footer-inverse h3 {
+.footer-inverse h1, .footer-inverse h2, .footer-inverse h3, .footer-inverse main .constitution h3, main .constitution .footer-inverse h3 {
   color: white;
 }
 
