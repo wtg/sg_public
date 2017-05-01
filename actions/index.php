@@ -12,6 +12,9 @@
         ol li ol {
             list-style-type: lower-alpha;
         }
+        article p {
+            font-size: 1.25rem;
+        }
     </style>
     <main class="container">
         <div class="row">
