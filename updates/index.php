@@ -10,6 +10,9 @@
         a {
             color: #c40000;
         }
+        article h2 {
+            margin-top: 0rem;
+        }
     </style>
     <main class="container">
         <div class="row">
@@ -45,8 +48,8 @@
                 </article>
             </div>
             <div class="col-md-3 col-md-offset-1">
-                <h3>Filter by body</h3>
-                <ul>
+                <h3 style="margin-bottom: 0;">Filter by body</h3>
+                <ul style="margin-top: 0.5rem;">
                     <li>
                         <a href=""><strong>All</strong></a>
                     </li>
@@ -67,8 +70,8 @@
                     </li>
                 </ul>
                 <hr />
-                <h3>Filter by committee or council</h3>
-                <ul>
+                <h3 style="margin-bottom: 0;">Filter by committee or council</h3>
+                <ul style="margin-top: 0.5rem;">
                     <li>
                         <a href=""><strong>All</strong></a>
                     </li>

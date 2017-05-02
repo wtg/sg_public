@@ -15,6 +15,9 @@
         article p {
             font-size: 1.25rem;
         }
+        article h2 {
+            margin-top: 0rem;
+        }
     </style>
     <main class="container">
         <div class="row">
