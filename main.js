@@ -17,4 +17,10 @@ jQuery(document).ready(function($) {
 		$('.right-nav').toggleClass('expanded');
 		$('#expand').toggleClass('expanded');
 	});
+
+	$('.dropdown-toggle').hover(function () {
+		$(this).addClass('show-dropdown');
+	}, function () {
+		$(this).removeClass('show-dropdown');
+	});
 });

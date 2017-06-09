@@ -1,0 +1,50 @@
+.footer {
+    @include lato-font();
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid $main-gray;
+    background-color: $main-gray;
+
+    h1, h2, h3 {
+        margin-top: 0;
+        line-height: 1;
+        color: $main-red;
+    }
+
+    .primary-footer {
+        margin-bottom: 1.5rem;
+    }
+
+    .secondary-footer {
+        font-size: 8pt;
+        color: darken($main-gray, 50%);
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: darken($main-gray, 5%);
+
+        .container {
+            font-size: 10pt;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+}
+
+.footer-inverse {
+    @extend .footer;
+    border-top: 1px solid darken($main-red, 17%);
+    background-color: rgba(darken($main-red, 10%), 0.8);
+    color: white;
+
+    h1, h2, h3 {
+        color: white;
+    }
+
+    .secondary-footer {
+        border-top: 1px solid darken($main-red, 17%);
+        background-color: darken($main-red, 15%);
+        color: white;
+    }
+}

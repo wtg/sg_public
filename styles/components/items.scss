@@ -1,0 +1,158 @@
+a.generic-item {
+    display: block;
+    box-sizing: padding-box;
+    /*box-shadow: 1px 1px 2px #ddd;*/
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #333333;
+
+    &:hover {
+        text-decoration: none;
+        color: #333333;
+        /*box-shadow: 2px 2px 2px $main-gray;*/
+    }
+
+    .item-image {
+        height: 14rem;
+        background-color: #aaa;
+        background-position: center;
+        background-size: cover;
+        display: block;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+    }
+
+    .item-content {
+        background-color: #ededed;
+        padding: 1rem;
+        border-bottom-left-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: $main-red;
+            line-height: 1;
+        }
+    }
+}
+
+a.update-item {
+    @extend .generic-item;
+
+    .update-image {
+        @extend .item-image;
+    }
+
+    .update-content {
+        @extend .item-content;
+        min-height: 8rem;
+
+        h4 {
+            font-size: 1rem;
+        }
+    }
+}
+
+a.person-item {
+    @extend .generic-item;
+
+    .person-image {
+        @extend .item-image;
+        background-image: url('http://thevaultbicycleshop.com/wp-content/themes/the-vault/images/blank-profile.png');
+
+        &.oblong {
+            background-image: none;
+            height: 10rem;
+        }
+    }
+
+    .person-content {
+        @extend .item-content;
+        text-align: center;
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        p.position {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+    }
+
+    &.small {
+        .person-image {
+            height: 10rem;
+            background-position: top;
+        }
+
+        .person-content {
+            h4 {
+                font-size: 1rem;
+            }
+
+            p.position {
+                font-size: 0.85rem;
+            }
+        }
+    }
+}
+
+a.committee-item {
+    @extend .generic-item;
+
+    .committee-image {
+        @extend .item-image;
+    }
+
+    .committee-content {
+        @extend .item-content;
+        text-align: center;
+        min-height: 7rem;
+
+        h4 {
+            font-size: 1.2rem;
+            min-height: 2.4rem;
+            vertical-align: middle;
+        }
+
+        p.position {
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+    }
+}
+
+.positions-table {
+    width: 100%;
+    margin-top: 0.7rem;
+
+    &.current {
+        margin-top: 1rem;
+        font-style: italic;
+        font-size: 1rem;
+
+        td:first-child {
+            text-align: left;
+            font-weight: bold;
+        }
+    }
+
+    thead td {
+        padding-top: 0.7rem;
+        border-top: 0.5px solid lighten($main-red, 30%);
+        text-align: left;
+        font-weight: bold;
+        // padding-top: 0.7rem;
+    }
+
+    td {
+        padding-bottom: 0.1rem;
+    }
+
+    td:nth-child(2) {
+        text-align: right;
+    }
+}

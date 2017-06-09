@@ -2,7 +2,13 @@
 
 function navItem($label, $url) {
     if(strncmp ($_SERVER['REQUEST_URI'], $url, strlen($url)) == 0) {
-        return "<li class=\"active\"><a href=\"$url\">$label</a></li>";
+        return "<li class=\"active dropdown-toggle\"><a href=\"$url\">$label</a>
+            <!--<div class='dropdown'>
+                <a>Test</a>
+                <a>Test</a>
+                <a>Test</a>
+            </div>-->
+        </li>";
     } else {
         return "<li><a href=\"$url\">$label</a></li>";
     }

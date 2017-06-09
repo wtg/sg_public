@@ -1,0 +1,25 @@
+.sidebar {
+    h1, h2, h3 {
+        margin-top: 0;
+    }
+
+    a {
+        @include lato-font();
+        display: block;
+        font-size: 1rem;
+        color: $main-red;
+        cursor: pointer;
+        margin: 0.45rem 0;
+        padding: 0.55rem 0.75rem;
+        font-weight: bold;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+
+        &:hover, &.active {
+            background-color: $main-red;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.2rem;
+        }
+    }
+}

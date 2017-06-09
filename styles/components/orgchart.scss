@@ -1,0 +1,136 @@
+.org-chart {
+    @extend .row;
+
+    .chart-panel {
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        display: block;
+
+        p {
+            line-height: 1;
+            margin: 0;
+            text-align: center;
+            color: $text-color;
+
+            i.fa {
+                font-size: 8rem;
+                margin: 1.5rem 0;
+                color: $main-red;
+            }
+        }
+
+        h3 {
+            @include palatino-font();
+            line-height: 1;
+            text-align: center;
+            margin: 0;
+            font-size: 1.35rem;
+            color: $text-color;
+        }
+
+        &:hover {
+            background-color: $main-gray;
+            cursor: pointer;
+            color: $text-color;
+            text-decoration: none;
+        }
+    }
+
+    .constitution-panel {
+        @extend .chart-panel;
+
+        h3 {
+            padding-bottom: 3rem;
+        }
+
+        &:after {
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+            left: -50%;
+            content: '';
+            height: 18%;
+            width: 100%;
+            border-right: 4px solid $main-gray;
+
+            @media screen and (max-width: 991px) {
+                height: 700%;
+                bottom: -686%;
+            }
+        }
+    }
+
+    .govt-body-panel {
+        @extend .chart-panel;
+
+        i.fa {
+            padding-top: 3rem;
+        }
+
+        h3 {
+            min-height: 4rem;
+            padding-bottom: 3rem;
+        }
+
+        &:before {
+            position: absolute;
+            z-index: -1;
+            top: 0%;
+            content: '';
+            height: 50%;
+            width: 100%;
+            border-top: 4px solid $main-gray;
+
+            @media screen and (max-width: $small-breakpoint) {
+                border-top: 0;
+                border-bottom: 4px solid $main-gray;
+                left: -50%;
+                width: 65%;
+                top: 12%;
+            }
+        }
+
+        @media screen and (min-width: $small-breakpoint + 1px) {
+            &.first:before {
+                left: 50%;
+            }
+
+            &.last:before {
+                right: 50%;
+            }
+
+            &:after {
+                position: absolute;
+                z-index: -1;
+                top: 0%;
+                left: -50%;
+                content: '';
+                height: 15%;
+                width: 100%;
+                border-right: 4px solid $main-gray;
+            }
+        }
+    }
+
+    .leader-panel {
+        @extend .chart-panel;
+         p {
+             margin-top: 0.75rem;
+             padding-top: 0.75rem;
+             border-top: 0.5px solid $main-gray;
+
+             @media screen and (max-width: $small-breakpoint) {
+                 border-top: none;
+             }
+         }
+
+         h3 {
+             margin-top: 0.5rem;
+             font-size: 1.2rem;
+         }
+
+         @media screen and (min-width: $small-breakpoint + 1px) {
+             padding-bottom: 1.5rem;
+         }
+    }
+}

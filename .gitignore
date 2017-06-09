@@ -1,4 +1,9 @@
 .DS_Store
 
-styles/main.min.css
+styles/*.min.css
+styles/vendor/*.css
+styles/vendor/*.min.css
+styles/components/*.css
+styles/components/*.min.css
+styles/*.css.map
 .sass-cache

@@ -1,0 +1,245 @@
+.nav-fixed {
+    background-color: rgba(white, 0.97);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid $main-gray;
+    z-index: 100;
+    /*box-shadow: 0 1px 2px #ddd;*/
+
+    .container {
+        margin: 0 auto;
+        padding: 1.5rem 0;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+
+        ul.right-nav {
+            @include lato-font();
+            float: right;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+
+            li {
+                display: inline-block;
+                height: 3rem;
+                font-size: 16px;
+
+                a {
+                    display: inline-block;
+                    min-width: 4rem;
+                    text-align: center;
+                    text-decoration: none;
+                    color: $main-red;
+                    font-weight: bold;
+                    margin: 0.45rem 0.25rem;
+                    padding: 0.55rem 0.75rem;
+                    height: 1rem;
+                    line-height: 1rem;
+                    box-sizing: content-box;
+                    -webkit-transition: all 0.3s ease;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: $main-red;
+                        border-radius: 0.2rem;
+                        color: white;
+                        text-decoration: none;
+                        box-sizing: content-box;
+                    }
+                }
+
+                div.dropdown {
+                    @include lato-font();
+                    visibility: hidden;
+                    position: absolute;
+                    margin: 0.2rem;
+                    padding: 0;
+                    background-color: white;
+                    border: 1px solid $main-gray;
+                    border-radius: 0.2rem;
+                    width: auto;
+                    box-sizing: padding-box;
+                    -webkit-transition: all 0.3s ease;
+                    transition: all 0.3s ease;
+
+                    a {
+                        display: inline-block;
+                        width: 100%;
+                        text-align: center;
+                        line-height: 1;
+                        height: initial;
+                        padding: 1rem 2rem;
+                        margin: 0;
+                        border-bottom: 1px solid $main-gray;
+                        font-weight: bold;
+                        color: $main-red;
+                        background-color: white;
+                        border-radius: 0;
+                        text-decoration: none;
+                        box-sizing: border-box;
+                        -webkit-transition: none;
+                        transition: none;
+
+                        &:hover, &.active {
+                            background-color: $main-red;
+                            color: white;
+                            text-decoration: none;
+                        }
+
+                        &:first-child {
+                            border-top-left-radius: 0.2rem;
+                            border-top-right-radius: 0.2rem;
+                        }
+
+                        &:last-child {
+                            border-bottom-left-radius: 0.2rem;
+                            border-bottom-right-radius: 0.2rem;
+                            border-bottom: 0;
+                        }
+                    }
+                }
+
+                &.show-dropdown {
+                    div.dropdown {
+                        visibility: visible;
+                    }
+                }
+
+                &.active a {
+                    background-color: $main-red;
+                    border-radius: 0.2rem;
+                    color: white;
+                    text-decoration: none;
+                    box-sizing: content-box;
+                }
+            }
+
+            @media screen and (max-width: $small-breakpoint) {
+                clear: both;
+                float: none;
+                display: none;
+                margin: 0 auto;
+                text-align: center;
+
+                &.expanded {
+                    display: block;
+                }
+
+                li {
+                    display: inline-block;
+                    width: 30%;
+                    text-align: center;
+                    font-size: 22px;
+
+                    a {
+                        padding: 1.5rem;
+                        margin: 2rem 0.25rem;
+                    }
+                }
+            }
+        }
+
+        .logo {
+            float: left;
+            display: block;
+            width: 3rem;
+            height: 3rem;
+            background-image: url('/icon.svg');
+            background-size: contain;
+            margin-left: 0.75rem;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        .nav-expand {
+            display: none;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+
+            .fa.fa-bars {
+                display: inline-block;
+            }
+
+            .fa.fa-close {
+                display: none;
+            }
+
+            &.expanded {
+                .fa.fa-bars {
+                    display: none;
+                }
+
+                .fa.fa-close {
+                    display: inline-block;
+                }
+            }
+
+            @media screen and (max-width: $small-breakpoint) {
+                float: right;
+                display: block;
+                margin-right: 0.75rem;
+                color: $main-red;
+                font-size: 3rem;
+                line-height: 1;
+            }
+        }
+    }
+
+    &.shrink {
+        @extend .nav-fixed;
+
+        .container {
+            padding: 0.9rem 0;
+
+            .logo {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .nav-expand {
+                font-size: 2.5rem;
+            }
+
+            ul.right-nav li a {
+                margin: 0.375rem 0.25rem;
+                padding: 0.375rem 0.75rem;
+
+                @media screen and (max-width: $small-breakpoint) {
+                    padding: 1rem;
+                    margin: 2rem 0.1rem;
+                }
+            }
+        }
+    }
+}
+
+.nav-inverse {
+    @extend .nav-fixed;
+    background-color: rgba(darken($main-red, 10%), 0.8);
+    border-bottom: 1px solid rgba($main-red, 0.9);
+
+    .container {
+        .logo {
+            background-image: url('/icon-inverse.svg');
+        }
+
+        ul.right-nav {
+            li a {
+                color: white;
+
+                &:hover {
+                    color: $main-red;
+                    background-color: white;
+                }
+            }
+
+            li.active a {
+                color: $main-red;
+                background-color: white;
+            }
+        }
+    }
+}
