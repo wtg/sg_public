@@ -26,54 +26,54 @@
         </section>
         <section class="row org-chart">
             <div class="col-md-fifth col-md-offset-0 col-xs-6 col-xs-offset-6">
-                <div class="govt-body-panel first">
+                <a class="govt-body-panel first">
                     <p><i class="fa fa-institution"></i></p>
                     <h3>Student Senate</h3>
-                </div>
-                <div class="leader-panel">
+                </a>
+                <a class="leader-panel">
                     <p class="lead">Lead by the </p>
                     <h3>Grand Marshal</h3>
-                </div>
+                </a>
             </div>
             <div class="col-md-fifth col-md-offset-0 col-xs-6 col-xs-offset-6">
-                <div class="govt-body-panel">
-                    <p><i class="fa fa-institution"></i></p>
+                <a class="govt-body-panel">
+                    <p><i class="fa fa-money"></i></p>
                     <h3>Executive Board</h3>
-                </div>
-                <div class="leader-panel">
+                </a>
+                <a class="leader-panel">
                     <p class="lead">Lead by the </p>
                     <h3>President of the Union</h3>
-                </div>
+                </a>
             </div>
             <div class="col-md-fifth col-md-offset-0 col-xs-6 col-xs-offset-6">
-                <div class="govt-body-panel">
+                <a class="govt-body-panel">
                     <p><i class="fa fa-gavel"></i></p>
                     <h3>Judicial Board</h3>
-                </div>
-                <div class="leader-panel">
+                </a>
+                <a class="leader-panel">
                     <p class="lead">Lead by the </p>
                     <h3>Judicial Board Chairman</h3>
-                </div>
+                </a>
             </div>
             <div class="col-md-fifth col-md-offset-0 col-xs-6 col-xs-offset-6">
-                <div class="govt-body-panel">
-                    <p><i class="fa fa-institution"></i></p>
+                <a class="govt-body-panel">
+                    <p><i class="fa fa-users"></i></p>
                     <h3>Undergraduate Council</h3>
-                </div>
-                <div class="leader-panel">
+                </a>
+                <a class="leader-panel">
                     <p class="lead">Lead by the </p>
                     <h3>Undergraduate President</h3>
-                </div>
+                </a>
             </div>
             <div class="col-md-fifth col-md-offset-0 col-xs-6 col-xs-offset-6">
-                <div class="govt-body-panel last">
-                    <p><i class="fa fa-institution"></i></p>
+                <a class="govt-body-panel last">
+                    <p><i class="fa fa-users"></i></p>
                     <h3>Graduate Council</h3>
-                </div>
-                <div class="leader-panel">
+                </a>
+                <a class="leader-panel">
                     <p class="lead">Lead by the </p>
                     <h3>Graduate President</h3>
-                </div>
+                </a>
             </div>
         </section>
         <hr />
@@ -83,23 +83,37 @@
             </div>
         </section>
         <section class="row">
-            <?php
-                $committees = json_decode(file_get_contents('committees.json'), true);
+            <div class="col-md-2 sidebar">
+                <h3>Filter by Body</h3>
+                <a class="active">All Bodies</a>
+                <a>Student Senate</a>
+                <a>Executive Board</a>
+                <a>Judicial Board</a>
+                <a>Undergraduate Council</a>
+                <a>Graduate Council</a>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <?php
+                        $committees = json_decode(file_get_contents('committees.json'), true);
 
-                foreach($committees as $c) {
-                    echo "
-                        <div class='col-lg-3 col-md-4 col-sm-6'>
-                            <a class='committee-item'>
-                                <div class='committee-image'></div>
-                                <div class='committee-content'>
-                                    <h4>$c[name]</h4>
-                                    <p class='position'>$c[body]</p>
+                        foreach($committees as $c) {
+                            echo "
+                                <div class='col-lg-4 col-md-6 col-sm-6'>
+                                    <a href='/about/committees' class='committee-item'>
+                                        <div class='committee-image'></div>
+                                        <div class='committee-content'>
+                                            <h4>$c[name]</h4>
+                                            <p class='position'>$c[body]</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    ";
-                }
-            ?>
+                            ";
+                        }
+                    ?>
+                </div>
+            </div>
+
         </section>
     </main>
     <?php require_once '../partials/footer.php' ?>
