@@ -1,0 +1,266 @@
+[
+    {
+        "name": "Kayla Cinnamon",
+        "position": "Undergraduate President",
+        "image": "",
+        "officer": true
+    },
+    {
+        "name": "Brenna Buckley",
+        "position": "Class of 2018 President",
+        "image": "",
+        "council": "2018",
+        "officer": true
+    },
+    {
+        "name": "Sean Waclawik",
+        "position": "Class of 2018 Vice President",
+        "image": "",
+        "council": "2018",
+        "officer": true
+    },
+    {
+        "name": "Ellie Mees",
+        "position": "Class of 2018 Senator",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Steve Sperazza",
+        "position": "Class of 2018 Senator",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Hannah Merrow",
+        "position": "Class of 2018 Senator",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Varun Rao",
+        "position": "Class of 2018 Senator",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Brandon Cressi",
+        "position": "Class of 2018 Representative",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Sukjinder Singh",
+        "position": "Class of 2018 Representative",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Keegan Caraway",
+        "position": "Class of 2018 Representative",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Mark Beston",
+        "position": "Class of 2018 Representative",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Matt Heimlich",
+        "position": "Class of 2018 Representative",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Huntington Gazecki",
+        "position": "Class of 2018 Representative",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Youssef Elasser",
+        "position": "Class of 2018 Representative",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Daniel Gorman",
+        "position": "Class of 2018 Representative",
+        "image": "",
+        "council": "2018"
+    },
+    {
+        "name": "Vignesh Babu",
+        "position": "Class of 2019 President",
+        "image": "",
+        "council": "2019",
+        "officer": true
+    },
+    {
+        "name": "Colin Williamson",
+        "position": "Class of 2019 Vice President",
+        "image": "",
+        "council": "2019",
+        "officer": true
+    },
+    {
+        "name": "Nancy Bush",
+        "position": "Class of 2019 Senator",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Kinsley Rowan",
+        "position": "Class of 2019 Senator",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Mary Clare Crochiere",
+        "position": "Class of 2019 Senator",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Yuvi Chopra",
+        "position": "Class of 2019 Senator",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Stephanie Tan",
+        "position": "Class of 2019 Representative",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Samantha Spano",
+        "position": "Class of 2019 Representative",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Benjamin Morrison",
+        "position": "Class of 2019 Representative",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Adi Mitra",
+        "position": "Class of 2019 Representative",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Mark Birkbeck",
+        "position": "Class of 2019 Representative",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Andrew D’Aoust",
+        "position": "Class of 2019 Representative",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Jacob Lane",
+        "position": "Class of 2019 Representative",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Brian Wisbauer",
+        "position": "Class of 2019 Representative",
+        "image": "",
+        "council": "2019"
+    },
+    {
+        "name": "Joshua Drinkhouse",
+        "position": "Class of 2020 President",
+        "image": "",
+        "council": "2020",
+        "officer": true
+    },
+    {
+        "name": "Joey Lyons",
+        "position": "Class of 2020 Vice President",
+        "image": "",
+        "council": "2020",
+        "officer": true
+    },
+    {
+        "name": "Lily Wang",
+        "position": "Class of 2020 Senator",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Meagan Lettko",
+        "position": "Class of 2020 Senator",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Joshua Thomas",
+        "position": "Class of 2020 Senator",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Chris Duffy",
+        "position": "Class of 2020 Senator",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Emily Kaplan",
+        "position": "Class of 2020 Representative",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Ariana Gerdis",
+        "position": "Class of 2020 Representative",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Milena Gonzalez",
+        "position": "Class of 2020 Representative",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Sarah El-Ghandour",
+        "position": "Class of 2020 Representative",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Gabriella Fantell",
+        "position": "Class of 2020 Representative",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Alexis Castrellon",
+        "position": "Class of 2020 Representative",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Clarisse Baes",
+        "position": "Class of 2020 Representative",
+        "image": "",
+        "council": "2020"
+    },
+    {
+        "name": "Jeanine Moreau",
+        "position": "Class of 2020 Representative",
+        "image": "",
+        "council": "2020"
+    }
+]

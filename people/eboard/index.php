@@ -37,11 +37,11 @@
     <main class="container">
         <section class="row">
             <div class="col-xs-12">
-                <h1 style="margin-bottom: 0;">Student Senate</h1>
+                <h1 style="margin-bottom: 0;">Executive Board</h1>
             </div>
         </section>
-        <?=members('Officers', 'senate.json', true, false); ?>
-        <?=members('Voting Members', 'senate.json', false, true); ?>
+        <?=members('Officers', 'eboard.json', true, false); ?>
+        <?=members('Voting Members', 'eboard.json', false, true); ?>
     </main>
     <?php require_once '../../partials/footer.php' ?>
 </body>

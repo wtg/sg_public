@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Matthew Rand",
+        "position": "128<sup>th</sup> President of the Union",
+        "term": "April 2017&ndash;present",
+        "image": "/img/matt_rand.jpg",
+        "officer": true,
+        "nonVoting": true
+    },
+    {
+        "name": "Rasika Ekhalikar",
+        "position": "Club/ICA Representative; Vice President of the Union",
+        "image": "",
+        "officer": true,
+        "nonVoting": false
+    },
+    {
+        "name": "Ananya Murali",
+        "position": "Club/ICA Representative",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Brookelyn Parslow",
+        "position": "Club/ICA Representative",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Ida Etemadi",
+        "position": "Club/ICA Representative",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Kay Sun",
+        "position": "Club/ICA Representative; Business Operations Chair",
+        "image": "",
+        "officer": true,
+        "nonVoting": false
+    },
+    {
+        "name": "Majken Rasmussen",
+        "position": "Club/ICA Representative; Secretary",
+        "image": "",
+        "officer": true,
+        "nonVoting": false
+    },
+    {
+        "name": "Erica Lane",
+        "position": "Class of 2018 Representative; Club Operations Chair",
+        "image": "",
+        "officer": true,
+        "nonVoting": false
+    },
+    {
+        "name": "David Raab",
+        "position": "Class of 2019 Representative",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Anissa Choiniere",
+        "position": "Class of 2020 Representative; Policies Chair",
+        "image": "",
+        "officer": true,
+        "nonVoting": false
+    },
+    {
+        "name": "C.J. Markum",
+        "position": "Graduate Representative",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Joe Venusto",
+        "position": "Senate-Executive Board Liaison",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Matt Heimlich",
+        "position": "Undergraduate Council-Executive Board Liaison",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Brian Mansaku",
+        "position": "Member-at-Large",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Caitlin Kennedy",
+        "position": "Member-at-Large",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Caroline Ringel",
+        "position": "Member-at-Large",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    },
+    {
+        "name": "Jared Segal",
+        "position": "Member-at-Large",
+        "image": "",
+        "officer": false,
+        "nonVoting": false
+    }
+]

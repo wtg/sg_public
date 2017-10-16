@@ -1195,7 +1195,7 @@ body {
   margin: 0;
   color: #502929; }
 
-p, .lead, ol, ul {
+p, .lead, ol, ul, .lead p, ol p, ul p {
   font-family: 'Palatino', serif;
   font-size: 0.9rem; }
 
@@ -1207,6 +1207,8 @@ h2 {
 
 .lead, ol, ul {
   font-size: 1.25rem; }
+  .lead .lead, .lead ol, .lead ul, .lead p, ol .lead, ol ol, ol ul, ol .lead p, .lead ol p, ol p, ul .lead, ul ol, ul ul, ul .lead p, .lead ul p, ul p {
+    font-size: 1.25rem; }
 
 a.generic-item, a.update-item, a.person-item, a.committee-item {
   display: block;

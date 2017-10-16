@@ -31,56 +31,84 @@
                     include_once '../partials/Parsedown.php';
                     $Parsedown = new Parsedown();
 
+                    $params = '';
 
-                    $url = "https://spreadsheets.google.com/feeds/list/1WBiEutYCz-EZn1SfJMC3SCGuqmSS9Esgj_V_sZR06Ho/od6/public/values?alt=json";
+                    if(isset($_GET['body'])) {
+                        $params .= (strlen($params) == 0) ? '?' : '&';
+                        $params .= "bodyUniqueId=$_GET[body]";
+                    }
+
+                    if(isset($_GET['session'])) {
+                        $params .= (strlen($params) == 0) ? '?' : '&';
+                        $params .= "sessionUniqueId=$_GET[session]";
+                    }
+
+                    if(isset($_GET['meeting'])) {
+                        $params .= (strlen($params) == 0) ? '?' : '&';
+                        $params .= "meetingNum=$_GET[meeting]";
+                    }
+
+                    if(isset($_GET['action'])) {
+                        $params .= (strlen($params) == 0) ? '?' : '&';
+                        $params .= "actionNum=$_GET[action]";
+                    }
+
+                    $url = "http://sgdata.etz.io/api/actions/" . $params;
                     $data = json_decode(file_get_contents($url), true);
 
-                    usort($data["feed"]["entry"], function ($item1, $item2) {
-                        if ($item1["gsx\$date"]["\$t"] == $item2["gsx\$date"]["\$t"]) {
-                            if ($item1["gsx\$motion"]["\$t"] == $item2["gsx\$motion"]["\$t"]) return 0;
-                            return $item1["gsx\$motion"]["\$t"] < $item2["gsx\$motion"]["\$t"] ? 1 : -1;
-                        }
-                        return $item1["gsx\$date"]["\$t"] < $item2["gsx\$date"]["\$t"] ? 1 : -1;
-                    });
-
-                    foreach($data["feed"]["entry"] as $entry) {
-                        if($entry["gsx\$status"]["\$t"] != "Not Yet Moved") {
-                            echo "<article><h2>" . $entry["gsx\$descriptor"]["\$t"] . "</h2>
-                                <p class=\"small text-muted\">" . $entry["gsx\$date"]["\$t"] . " | Legislation ID: <strong>S.48." . $entry["gsx\$gbm"]["\$t"] . "." . $entry["gsx\$motion"]["\$t"] . "</strong></p>
-                                <p class=\"lead\">" . $Parsedown->text($entry["gsx\$motiontext"]["\$t"]) . "</p>
-                                <p class=\"lead\"><em>
-                                    So moved by " . $entry["gsx\$movedby"]["\$t"] . ",
-                                    and seconded by " . $entry["gsx\$secondedby"]["\$t"] . ".
-                                </em></p>
-                                <p><strong>" . $entry["gsx\$status"]["\$t"] . " by a vote of " . $entry["gsx\$votesfor"]["\$t"]
-                                    . "-" . $entry["gsx\$votesagainst"]["\$t"] . "-" . $entry["gsx\$abstentions"]["\$t"] . ".</p></strong>
-                            </article>
-                            <hr />";
-                        }
+                    if(count($data) == 0) {
+                        echo "<h3>No actions were found!</h3>";
                     }
+
+                    foreach($data as $entry) {
+                        echo "<article><h2>" . $entry["description"] . "</h2>
+                            <p class=\"small text-muted\">" . $entry["meeting"]["date"] . " | Action ID: <strong>" . $entry["actionIndicator"] . "</strong></p>
+                            <p class=\"lead\">" . $Parsedown->text($entry["text"]) . "</p>
+                            <p class=\"lead\"><em>
+                                So moved by " . (isset($entry["movingSubbodyUniqueId"]) ? ('the ' . $entry["movingSubbody"]["name"]) : $entry["movingMemberId"]) .
+                                (isset($entry["movingSubbodyUniqueId"]) ? "" : (", and seconded by " . $entry["secondingMemberId"])) . ".
+                            </em></p>
+                            <p><strong>" . $entry["status"] . " by a vote of " . $entry["votesFor"]
+                                . "-" . $entry["votesAgainst"] . "-" . $entry["abstentions"] . ".</p></strong>
+                        </article>
+                        <hr />";
+                    }
+
+                    // if(count($data))
                 ?>
+                <!-- <div>
+
+                    <p>
+                        <button class="btn btn-default pull-left" disabled>< Previous Page</button>
+                        <button class="btn btn-default pull-right" disabled>Next Page ></button>
+                    </p>
+                </div> -->
             </div>
             <div class="col-md-3 col-md-offset-1">
                 <h3>Filter by body</h3>
                 <ul>
                     <li>
-                        <a href=""><strong>All</strong></a>
+                        <a href="/actions"><strong>All bodies</strong></a>
                     </li>
-                    <li>
-                        <a href="">Senate</a>
-                    </li>
-                    <li>
-                        <a href="">Executive Board</a>
-                    </li>
-                    <li>
-                        <a href="">Judicial Board</a>
-                    </li>
-                    <li>
-                        <a href="">Undergraduate Council</a>
-                    </li>
-                    <li>
-                        <a href="">Graduate Council</a>
-                    </li>
+                    <?php
+                        $url = "http://sgdata.etz.io/api/bodies";
+                        $data = json_decode(file_get_contents($url), true);
+
+                        foreach($data as $entry) {
+                            echo "<li style=\"margin-top: 0.7rem\"><a href=\"/actions?body=$entry[uniqueId]\">$entry[name]</a>";
+
+                            if(count($entry['sessions']) > 0) {
+                                echo "<ul>";
+                                
+                                foreach($entry['sessions'] as $session) {
+                                    echo "<li style=\"font-size: 1.05rem\"><a href=\"/actions?body=$entry[uniqueId]&session=$session[uniqueId]\">$session[name]</a></li>";
+                                }
+                                echo "</ul>";
+                            }
+
+                            echo "</li>";
+                        }
+                    ?>
                 </ul>
             </div>
         </div>

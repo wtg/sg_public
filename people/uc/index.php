@@ -1,5 +1,5 @@
 <?php
-    function members($title, $filename, $officersOnly, $votingOnly) {
+    function members($title, $filename, $officersOnly, $councilOnly, $council) {
         $members = json_decode(file_get_contents($filename), true);
         $html = '<section class="row">';
 
@@ -8,7 +8,7 @@
         foreach($members as $m) {
             if($officersOnly && (!isset($m['officer']) || !$m['officer'])) {
                 continue;
-            } else if($votingOnly && isset($m['nonVoting']) && $m['nonVoting']) {
+            } else if($councilOnly && (!isset($m['council']) || $m['council'] != $council)) {
                 continue;
             }
 
@@ -37,11 +37,13 @@
     <main class="container">
         <section class="row">
             <div class="col-xs-12">
-                <h1 style="margin-bottom: 0;">Student Senate</h1>
+                <h1 style="margin-bottom: 0;">Undergraduate Council</h1>
             </div>
         </section>
-        <?=members('Officers', 'senate.json', true, false); ?>
-        <?=members('Voting Members', 'senate.json', false, true); ?>
+        <?=members('Leadership', 'uc.json', true, false, ''); ?>
+        <?=members('Class of 2018 Council', 'uc.json', false, true, '2018'); ?>
+        <?=members('Class of 2019 Council', 'uc.json', false, true, '2019'); ?>
+        <?=members('Class of 2020 Council', 'uc.json', false, true, '2020'); ?>
     </main>
     <?php require_once '../../partials/footer.php' ?>
 </body>

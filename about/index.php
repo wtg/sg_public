@@ -30,7 +30,7 @@
                     <p><i class="fa fa-institution"></i></p>
                     <h3>Student Senate</h3>
                 </a>
-                <a class="leader-panel">
+                <a class="leader-panel" href="/about/gm">
                     <p class="lead">Lead by the </p>
                     <h3>Grand Marshal</h3>
                 </a>
@@ -77,34 +77,46 @@
             </div>
         </section>
         <hr />
+        <a id="subbodies"></a>
         <section class="row">
             <div class="col-xs-12">
-                <h2>Committees and Councils</h2>
+                <h2>Committees, Councils, and Sub-Bodies</h2>
             </div>
         </section>
         <section class="row">
             <div class="col-md-2 sidebar">
                 <h3>Filter by Body</h3>
-                <a class="active">All Bodies</a>
-                <a>Student Senate</a>
-                <a>Executive Board</a>
-                <a>Judicial Board</a>
-                <a>Undergraduate Council</a>
-                <a>Graduate Council</a>
+                <a href="/about#subbodies" <?=(isset($_GET['body']) ? '' : 'class="active"') ?>>All Bodies</a>
+                <?php
+                    $url = "http://sgdata.etz.io/api/bodies";
+                    $data = json_decode(file_get_contents($url), true);
+
+                    foreach($data as $entry) {
+                        echo "<a href=\"/about?body=$entry[uniqueId]#subbodies\""
+                            . ((isset($_GET['body']) && $_GET['body'] == $entry['uniqueId']) ? 'class="active"' : '')
+                            . ">$entry[name]</a>";
+                    }
+                ?>
             </div>
             <div class="col-md-10">
                 <div class="row">
                     <?php
-                        $committees = json_decode(file_get_contents('committees.json'), true);
+                        $url = 'http://sgdata.etz.io/api/subbodies' . (isset($_GET['body']) ? "?bodyUniqueId=$_GET[body]" : '');
+                        $subbodies = json_decode(file_get_contents($url), true);
 
-                        foreach($committees as $c) {
+                        if(count($subbodies) === 0) {
+                            echo "<p class='text-muted'>No sub-bodies were found for this body!</p>";
+                        }
+
+                        foreach($subbodies as $s) {
+                            $sessionName = $s['session']['name'];
                             echo "
                                 <div class='col-lg-4 col-md-6 col-sm-6'>
                                     <a href='/about/committees' class='committee-item'>
                                         <div class='committee-image'></div>
                                         <div class='committee-content'>
-                                            <h4>$c[name]</h4>
-                                            <p class='position'>$c[body]</p>
+                                            <h4>$s[name]</h4>
+                                            <p class='position'>$sessionName</p>
                                         </div>
                                     </a>
                                 </div>

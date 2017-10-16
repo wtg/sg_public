@@ -25,4 +25,9 @@ h2 {
 .lead, ol, ul {
     @extend p;
     font-size: 1.25rem;
+
+    p {
+        @extend p;
+        font-size: 1.25rem;
+    }
 }
