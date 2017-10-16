@@ -1199,6 +1199,9 @@ p, .lead, ol, ul, .lead p, ol p, ul p {
   font-family: 'Palatino', serif;
   font-size: 0.9rem; }
 
+a {
+  color: #c40000; }
+
 h1 {
   font-size: 2.5rem; }
 
