@@ -29,10 +29,11 @@
                         </p>
                     </div>
                 </a>
+                <a class="btn btn-inverse pull-right" href="/updates">View All</a>
             </div>
             <div class="col-lg-4">
                 <h2>Upcoming Events</h2>
-                <a class="update-item" href="/updates">
+                <a class="update-item" href="/events">
                     <div class="update-content" style="min-height: 0">
                         <h4>Senate Meeting</h4>
                         <p class="logistics">Monday, May 1, 2017 | 8 pm</p>
@@ -56,6 +57,7 @@
                         <p class="logistics">Thursday, May 4, 2017 | 7:30 pm</p>
                     </div>
                 </a>
+                <a class="btn btn-inverse pull-right" href="/events">View All</a>
             </div>
             <div class="col-lg-4">
                 <h2>Recent Actions &amp; Legislation</h2>
@@ -79,6 +81,7 @@
                         </a>";
                     }
                 ?>
+                <a class="btn btn-inverse pull-right" href="/actions">View All</a>
             </div>
         </section>
     </main>

@@ -6,9 +6,19 @@
     <main class="container">
         <section class="row">
             <div class="col-xs-12">
-                <h1>What is student government?</h1>
+                <h1>By the students, for the students.</h1>
                 <p class="lead">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet felis suscipit, euismod ipsum non, fringilla mi. Vivamus faucibus volutpat lobortis. Ut in aliquet felis. Sed lobortis pellentesque tristique. Vivamus sodales neque nec lectus sodales, at dictum diam semper. Duis gravida, enim a ultricies placerat, lorem quam pharetra diam, sit amet faucibus sem nisl in nibh. In egestas velit id magna ultricies, eu pulvinar enim tempus. Nullam a risus convallis, lobortis turpis sed, consequat dui. Cras quis porta neque. Sed et lectus orci. In vitae leo at enim auctor pharetra. Sed et volutpat urna, ut iaculis enim.
+                    Student government at Rensselaer Polytechnic Institute aims to lead the student body in fulfilling
+                    the mission of the Rensselaer Union. The various bodies of student government are responsible for
+                    serving as a medium through which student opinion may be expressed, coordinating all student
+                    organizations, leading student action, and collaborating with the campus for welfare and betterment
+                    of our alma mater.
+                </p>
+                <p class="lead">
+                    The student government consists of a legislative branch, the Student Senate, a financial branch,
+                    the Executive Board, a judicial branch, the Judicial Board, and two representational branches, the
+                    Undergraduate Council and the Graduate Council. The Union, including student government, are governed
+                    by the <em>Rensselaer Union Constitution</em>.
                 </p>
             </div>
         </section>

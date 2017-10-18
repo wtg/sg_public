@@ -18,6 +18,80 @@ a {
     color: $main-red;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.btn-label {
+    @include lato-font();
+    display: inline-block;
+    min-width: 4rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0.45rem 0.25rem;
+    padding: 0.55rem 0.75rem;
+    min-height: 1rem;
+    line-height: 1rem;
+    box-sizing: content-box;
+    font-size: 1.1rem;
+}
+
+.btn {
+    @extend .btn-label;
+    color: $main-red;
+    border-radius: 0.2rem;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &.btn-inverse {
+        color: white;
+        background-color: $main-red;
+        text-decoration: none;
+        box-sizing: content-box;
+        border: 1px solid white;
+
+        &:hover {
+            background-color: white;
+            color: $main-red;
+            border: 1px solid $main-red;
+        }
+
+        &.disabled {
+            &:hover {
+                color: white;
+                background-color: $main-red;
+                text-decoration: none;
+                box-sizing: content-box;
+                border: 1px solid white;
+            }
+        }
+    }
+
+    &:hover, &.active {
+        background-color: $main-red;
+        color: white;
+        text-decoration: none;
+        box-sizing: content-box;
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        opacity: .65;
+
+        &:hover {
+            background-color: white;
+            color: $main-red;
+            text-decoration: none;
+            box-sizing: content-box;
+        }
+    }
+}
+
 h1 {
     font-size: 2.5rem;
 }
@@ -33,5 +107,20 @@ h2 {
     p {
         @extend p;
         font-size: 1.25rem;
+    }
+}
+
+ul {
+    &.button-list {
+        list-style: none;
+        padding-left:0;
+
+        ul, ol {
+            list-style: none;
+        }
+
+        li a {
+            @extend .btn;
+        }
     }
 }

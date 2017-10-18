@@ -1,8 +1,113 @@
+<?php
+include_once '../partials/Parsedown.php';
+$Parsedown = new Parsedown();
+
+function constructUrlParams($page) {
+    $urlParams = '';
+
+    foreach($_GET as $key => $val) {
+        if($key == 'page' && $page == 0) {
+            continue;
+        }
+
+        $urlParams .= (strlen($urlParams) == 0) ? '?' : '&';
+        if($key == 'page' && isset($page)) {
+            $urlParams .= 'page=' . $page;
+        } else {
+            $urlParams .= "$key=" . $_GET[$key];
+        }
+    }
+
+    if(!isset($_GET['page']) && isset($page) && $page != 0) {
+        $urlParams .= (strlen($urlParams) == 0) ? '?' : '&';
+        $urlParams .= 'page=' . $page;
+    }
+
+    return $urlParams;
+}
+
+$actionsParams = '';
+
+if(isset($_GET['body'])) {
+    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
+    $actionsParams .= "bodyUniqueId=$_GET[body]";
+}
+
+if(isset($_GET['session'])) {
+    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
+    $actionsParams .= "sessionUniqueId=$_GET[session]";
+}
+
+if(isset($_GET['meeting'])) {
+    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
+    $actionsParams .= "meetingNum=$_GET[meeting]";
+}
+
+if(isset($_GET['action'])) {
+    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
+    $actionsParams .= "actionNum=$_GET[action]";
+}
+
+if(isset($_GET['q'])) {
+    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
+    $actionsParams .= "q=$_GET[q]";
+}
+
+if(isset($_GET['q'])) {
+    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
+    $actionsParams .= "q=$_GET[q]";
+}
+
+if(isset($_GET['page'])) {
+    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
+
+    if($_GET['page'] <= 0) {
+        header('Location: /actions' . constructUrlParams(0));
+        exit;
+    }
+
+    $currentPage = $_GET['page'];
+
+    $actionsParams .= "page=$currentPage";
+} else {
+    $currentPage = 0;
+}
+
+if(isset($_GET['count'])) {
+    $numPerPage = $_GET[count];
+} else {
+    $numPerPage = 10;
+}
+
+$actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
+$actionsParams .= "count=" . $numPerPage;
+
+
+
+$data = json_decode(file_get_contents("http://sgdata.etz.io/api/actions/" . $actionsParams), true);
+
+foreach($http_response_header as $h) {
+    $header = explode(": ", $h, 2);
+    if($header[0] == 'Content-Range') {
+        $contentRange = explode(" ", $header[1], 2)[1];
+        $startingIndex = explode("-", $contentRange, 2)[0];
+        $totalActionsCount = explode("/", $contentRange, 2)[1];
+        $numPages = (int)ceil((float)$totalActionsCount / (float)$numPerPage);
+
+        if($startingIndex >= $totalActionsCount && $totalActionsCount > 0) {
+            header('Location: /actions' . constructUrlParams(($numPages - 1)));
+            exit;
+        }
+    }
+}
+
+$activeSessions = json_decode(file_get_contents("http://sgdata.etz.io/api/sessions?active=true"), true);
+?>
 <!DOCTYPE html>
 <html>
 <?php require_once '../partials/head.php' ?>
 <body>
-    <?php require_once '../partials/nav.php'; ?>
+    <?php require_once '../partials/nav.php' ?>
     <style type="text/css">
         /* I know this is bad and should not be here. It's short term, don't judge! */
 
@@ -28,89 +133,131 @@
         <div class="row">
             <div class="col-md-8">
                 <?php
-                    include_once '../partials/Parsedown.php';
-                    $Parsedown = new Parsedown();
+                    if(count($data) == 0) {
+                        echo "<h3>No actions were found!</h3>";
+                    } else {
+                        $i = 0;
+                        foreach($data as $entry) {
+                            if($i > 0) {
+                                echo "<hr />";
+                            }
+                            echo "<article><h2>" . $entry["description"] . "</h2>
+                                <p class=\"small text-muted\">" . $entry["meeting"]["displayDate"] . " | Action ID: <strong>" . $entry["actionIndicator"] . "</strong></p>
+                                <p class=\"lead\">" . $Parsedown->text($entry["text"]) . "</p>
+                                <p class=\"lead\"><em>
+                                    So moved by " . (isset($entry["movingSubbodyUniqueId"]) ? ('the ' . $entry["movingSubbody"]["name"]) : $entry["movingMember"]["person"]["name"]) .
+                                    (isset($entry["movingSubbodyUniqueId"]) ? "" : (", and seconded by " . $entry["secondingMember"]["person"]["name"])) . ".
+                                </em></p>
+                                <p><strong>" . $entry["status"] . " by a vote of " . $entry["votesFor"]
+                                    . "-" . $entry["votesAgainst"] . "-" . $entry["abstentions"] . ".</p></strong>
+                            </article>";
 
-                    $params = '';
+                            $i++;
+                        }
+                    }
+                ?>
+                <?php
+                if(!isset($_GET['action'])) {
+                    echo '<hr>';
+
+                    echo '<p class="text-center">';
+
+                    echo '<a class="btn btn-inverse pull-left' . ($currentPage == 0 ? ' disabled" ' : '" ') .
+                        ($currentPage > 0 ? 'href="/actions' . constructUrlParams(($currentPage - 1)) . '">' : '>') .
+                        '< Previous Page</a>';
+
+                    echo '<a class="btn btn-inverse pull-right' . ($currentPage == ($numPages - 1) ? ' disabled" ' : '" ') .
+                        ($currentPage < $numPages ? 'href="/actions' . constructUrlParams(($currentPage + 1)) . '">' : '>') .
+                        'Next Page ></a>';
+
+                    echo '<span class="btn-label">Page ' . ($currentPage + 1) . ' of ' . $numPages . '</span>';
+
+                    echo '</p>';
+                }
+                ?>
+            </div>
+            <?php
+                $url = "http://sgdata.etz.io/api/bodies";
+                $data = json_decode(file_get_contents($url), true);
+
+                $i = 0;
+
+                $active = null;
+
+                if(isset($data)) {
+                    echo '<div class="col-md-3 col-md-offset-1 sidebar hidden-sm hidden-xs">';
+
+                    echo '<form method="get" action="/actions">';
 
                     if(isset($_GET['body'])) {
-                        $params .= (strlen($params) == 0) ? '?' : '&';
-                        $params .= "bodyUniqueId=$_GET[body]";
+                        echo '<input name="body" type="hidden" value="' . $_GET['body'] . '">';
                     }
 
                     if(isset($_GET['session'])) {
-                        $params .= (strlen($params) == 0) ? '?' : '&';
-                        $params .= "sessionUniqueId=$_GET[session]";
+                        echo '<input name="session" type="hidden" value="' . $_GET['session'] . '">';
                     }
 
-                    if(isset($_GET['meeting'])) {
-                        $params .= (strlen($params) == 0) ? '?' : '&';
-                        $params .= "meetingNum=$_GET[meeting]";
-                    }
+                    echo '<input name="q" type="text" placeholder="Search actions" value="' . (isset($_GET['q']) ? $_GET['q'] : '' ) . '">';
 
-                    if(isset($_GET['action'])) {
-                        $params .= (strlen($params) == 0) ? '?' : '&';
-                        $params .= "actionNum=$_GET[action]";
-                    }
+                    echo '<input type="submit" class="btn btn-inverse pull-right" value="Search">';
 
-                    $url = "http://sgdata.etz.io/api/actions/" . $params;
-                    $data = json_decode(file_get_contents($url), true);
+                    echo '<div class="clearfix"></div>';
 
-                    if(count($data) == 0) {
-                        echo "<h3>No actions were found!</h3>";
-                    }
+                    echo '</form>';
+
+                    echo '<br><h3>Filter by body</h3>';
+
+                    echo '<a class="' . (!isset($_GET['body']) ? 'active' : '') . '" href="/actions"><strong>All bodies</strong></a>';
 
                     foreach($data as $entry) {
-                        echo "<article><h2>" . $entry["description"] . "</h2>
-                            <p class=\"small text-muted\">" . $entry["meeting"]["date"] . " | Action ID: <strong>" . $entry["actionIndicator"] . "</strong></p>
-                            <p class=\"lead\">" . $Parsedown->text($entry["text"]) . "</p>
-                            <p class=\"lead\"><em>
-                                So moved by " . (isset($entry["movingSubbodyUniqueId"]) ? ('the ' . $entry["movingSubbody"]["name"]) : $entry["movingMemberId"]) .
-                                (isset($entry["movingSubbodyUniqueId"]) ? "" : (", and seconded by " . $entry["secondingMemberId"])) . ".
-                            </em></p>
-                            <p><strong>" . $entry["status"] . " by a vote of " . $entry["votesFor"]
-                                . "-" . $entry["votesAgainst"] . "-" . $entry["abstentions"] . ".</p></strong>
-                        </article>
-                        <hr />";
+                        $classes = '';
+
+                        if (isset($_GET['body']) && $_GET['body'] == $entry['uniqueId']) {
+                            $active = json_decode(json_encode($entry), true);
+                            $classes .= 'class="active"';
+                        }
+
+                        echo "<a " . $classes . "href=\"/actions?body=$entry[uniqueId]\">$entry[name]</a>";
                     }
 
-                    // if(count($data))
-                ?>
-                <!-- <div>
+                    echo "<br><h3>Filter by active session</h3>";
 
-                    <p>
-                        <button class="btn btn-default pull-left" disabled>< Previous Page</button>
-                        <button class="btn btn-default pull-right" disabled>Next Page ></button>
-                    </p>
-                </div> -->
-            </div>
-            <div class="col-md-3 col-md-offset-1">
-                <h3>Filter by body</h3>
-                <ul>
-                    <li>
-                        <a href="/actions"><strong>All bodies</strong></a>
-                    </li>
-                    <?php
-                        $url = "http://sgdata.etz.io/api/bodies";
-                        $data = json_decode(file_get_contents($url), true);
+                    foreach ($activeSessions as $session) {
+                        $classes = '';
 
-                        foreach($data as $entry) {
-                            echo "<li style=\"margin-top: 0.7rem\"><a href=\"/actions?body=$entry[uniqueId]\">$entry[name]</a>";
+                        if (isset($_GET['session']) && $_GET['session'] == $session['uniqueId'] && $_GET['body'] == $session['bodyUniqueId']) {
+                            $classes .= 'class="active"';
+                        }
 
-                            if(count($entry['sessions']) > 0) {
-                                echo "<ul>";
-                                
-                                foreach($entry['sessions'] as $session) {
-                                    echo "<li style=\"font-size: 1.05rem\"><a href=\"/actions?body=$entry[uniqueId]&session=$session[uniqueId]\">$session[name]</a></li>";
-                                }
-                                echo "</ul>";
+                        echo "<a " . $classes . "href='/actions?body=$session[bodyUniqueId]&session=$session[uniqueId]'>$session[name]</a>";
+                    }
+
+                    if(isset($active) && count($active['sessions']) > 0) {
+                        echo "<br><h3>Filter by $active[name] session</h3>";
+
+                        if (isset($_GET['body']) && $_GET['body'] == $entry['uniqueId']) {
+                            $active = json_decode(json_encode($entry), true);
+                            $classes .= 'class="active"';
+                        }
+
+                        echo "<a class=\"" . (!isset($_GET['session']) ? 'active' : '') . "\" href='/actions?body=$active[uniqueId]'>All sessions</a>";
+
+                        foreach($active['sessions'] as $session) {
+                            $classes = '';
+
+                            if (isset($_GET['session']) && $_GET['session'] == $session['uniqueId']) {
+                                $classes .= 'class="active"';
                             }
 
-                            echo "</li>";
+                            echo "<a " . $classes . "href='/actions?body=$active[uniqueId]&session=$session[uniqueId]'>$session[name]</a>";
                         }
-                    ?>
-                </ul>
-            </div>
+                    } else {
+
+                    }
+
+                    echo '</div>';
+                }
+            ?>
         </div>
     </main>
     <?php require_once '../partials/footer.php' ?>

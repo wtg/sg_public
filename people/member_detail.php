@@ -44,6 +44,12 @@ if(isset($m['campusInvolvements'])) {
     $involvements = $m['campusInvolvements'];
 }
 
+if(isset($m['image'])) {
+    $image = $m['image'];
+} else {
+    $image = '/img/blank_profile.png';
+}
+
 require_once '../partials/head.php';
 ?>
 <body>
@@ -53,7 +59,7 @@ require_once '../partials/head.php';
             <?php
                 echo "
                     <div class='col-sm-4'>
-                        <img class='img-responsive' src='$m[image]' />
+                        <img class='img-responsive' src='$image' />
                         <table class='positions-table current'>
                             $pos
                         </table>";
