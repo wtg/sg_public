@@ -66,7 +66,7 @@
                     $Parsedown = new Parsedown();
 
 
-                    $url = "http://sgdata.etz.io/api/actions?count=3";
+                    $url = "https://data.sg.rpi.edu/api/actions?count=3";
                     $data = json_decode(file_get_contents($url), true);
 
                     foreach($data as $entry) {

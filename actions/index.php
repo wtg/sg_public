@@ -79,7 +79,7 @@ $actionsParams .= "count=" . $numPerPage;
 
 
 
-$data = json_decode(file_get_contents("http://sgdata.etz.io/api/actions/" . $actionsParams), true);
+$data = json_decode(file_get_contents("https://data.sg.rpi.edu/api/actions/" . $actionsParams), true);
 
 foreach($http_response_header as $h) {
     $header = explode(": ", $h, 2);
@@ -96,7 +96,7 @@ foreach($http_response_header as $h) {
     }
 }
 
-$activeSessions = json_decode(file_get_contents("http://sgdata.etz.io/api/sessions?active=true"), true);
+$activeSessions = json_decode(file_get_contents("https://data.sg.rpi.edu/api/sessions?active=true"), true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -172,7 +172,7 @@ $activeSessions = json_decode(file_get_contents("http://sgdata.etz.io/api/sessio
                 ?>
             </div>
             <?php
-                $url = "http://sgdata.etz.io/api/bodies";
+                $url = "https://data.sg.rpi.edu/api/bodies";
                 $data = json_decode(file_get_contents($url), true);
 
                 $i = 0;

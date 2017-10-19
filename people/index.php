@@ -16,7 +16,7 @@
         </section>
         <section class="row">
             <?php
-            $unionOfficers = json_decode(file_get_contents("http://sgdata.etz.io/api/positions?presidingOfficer=true"), true);
+            $unionOfficers = json_decode(file_get_contents("https://data.sg.rpi.edu/api/positions?presidingOfficer=true"), true);
 
             foreach($unionOfficers as $position) {
                 foreach($position['memberships'] as $m) {
@@ -45,7 +45,7 @@
         </section>
         <section class="row">
             <?php
-            $sessions = json_decode(file_get_contents("http://sgdata.etz.io/api/sessions?active=true"), true);
+            $sessions = json_decode(file_get_contents("https://data.sg.rpi.edu/api/sessions?active=true"), true);
 
             foreach($sessions as $s) {
                 $name = $s['body']['name'];

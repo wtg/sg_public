@@ -2,7 +2,7 @@
     $uniqueId = $_GET['uniqueId'];
     $bodyUniqueId = $_GET['bodyUniqueId'];
 
-    $members = json_decode(file_get_contents("http://sgdata.etz.io/api/memberships?bodyUniqueId=$bodyUniqueId&sessionUniqueId=$uniqueId&sort=name,-endDate"), true);
+    $members = json_decode(file_get_contents("https://data.sg.rpi.edu/api/memberships?bodyUniqueId=$bodyUniqueId&sessionUniqueId=$uniqueId&sort=name,-endDate"), true);
 
     $sessionTitle = $members[0]['session']['name'];
 
@@ -54,7 +54,7 @@
         <section class="row">
             <div class="col-xs-12"><h2>Other Sessions</h2></div>
             <?php
-            $otherSessions = json_decode(file_get_contents("http://sgdata.etz.io/api/sessions?bodyUniqueId=$bodyUniqueId&sort=-name"), true);
+            $otherSessions = json_decode(file_get_contents("https://data.sg.rpi.edu/api/sessions?bodyUniqueId=$bodyUniqueId&sort=-name"), true);
 
             foreach($otherSessions as $s) {
                 if($s['uniqueId'] == $uniqueId) continue;

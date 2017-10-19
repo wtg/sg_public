@@ -98,7 +98,7 @@
                 <h3>Filter by Body</h3>
                 <a href="/about#subbodies" <?=(isset($_GET['body']) ? '' : 'class="active"') ?>>All Bodies</a>
                 <?php
-                    $url = "http://sgdata.etz.io/api/bodies";
+                    $url = "https://data.sg.rpi.edu/api/bodies";
                     $data = json_decode(file_get_contents($url), true);
 
                     foreach($data as $entry) {
@@ -111,7 +111,7 @@
             <div class="col-md-10">
                 <div class="row">
                     <?php
-                        $url = 'http://sgdata.etz.io/api/subbodies' . (isset($_GET['body']) ? "?bodyUniqueId=$_GET[body]" : '');
+                        $url = 'https://data.sg.rpi.edu/api/subbodies' . (isset($_GET['body']) ? "?bodyUniqueId=$_GET[body]" : '');
                         $subbodies = json_decode(file_get_contents($url), true);
 
                         if(count($subbodies) === 0) {

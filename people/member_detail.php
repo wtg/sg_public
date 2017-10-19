@@ -2,7 +2,7 @@
 <html>
 <?php
 $rcsId = $_GET['rcsId'];
-$m = json_decode(file_get_contents("http://sgdata.etz.io/api/people?rcsId=$rcsId"), true)[0];
+$m = json_decode(file_get_contents("https://data.sg.rpi.edu/api/people?rcsId=$rcsId"), true)[0];
 
 $pos = "";
 $pastPos = "";

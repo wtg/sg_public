@@ -2,7 +2,7 @@
 <html>
 <?php
 $id = $_GET['id'];
-$position = json_decode(file_get_contents("http://sgdata.etz.io/api/positions?id=$id"), true)[0];
+$position = json_decode(file_get_contents("https://data.sg.rpi.edu/api/positions?id=$id"), true)[0];
 
 require_once '../partials/head.php';
 ?>
