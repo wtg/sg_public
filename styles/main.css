@@ -1488,7 +1488,7 @@ a.committee-item .committee-content {
       height: 3rem;
       background-image: url("/icon.svg");
       background-size: contain;
-      margin-left: 0.75rem;
+      margin-left: 15px;
       -webkit-transition: all 0.3s ease;
       transition: all 0.3s ease; }
       @media screen and (max-width: 991px) {
