@@ -1691,7 +1691,9 @@ a.committee-item .committee-content {
           text-decoration: none;
           text-align: left;
           border-radius: 0.2rem;
-          font-weight: bold; }
+          font-weight: bold;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
           .footer .primary-footer ul li a:hover, .footer-inverse .primary-footer ul li a:hover {
             background-color: #c40000;
             color: white;
@@ -1751,7 +1753,9 @@ a.committee-item .committee-content {
           color: #6f6f6f;
           font-size: 10pt;
           padding: 1rem;
-          display: inline-block; }
+          display: inline-block;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
           .footer .secondary-footer .container ul li a:hover, .footer-inverse .secondary-footer .container ul li a:hover {
             color: #555555;
             background-color: #bbbbbb;

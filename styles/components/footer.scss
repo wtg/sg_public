@@ -39,6 +39,8 @@
                     text-align: left;
                     border-radius: $nav-border-radius;
                     font-weight: bold;
+                    -webkit-transition: all 0.3s ease;
+                    transition: all 0.3s ease;
 
 
                     &:hover {
@@ -125,6 +127,8 @@
                         font-size: 10pt;
                         padding: 1rem;
                         display: inline-block;
+                        -webkit-transition: all 0.3s ease;
+                        transition: all 0.3s ease;
 
                         &:hover {
                             color: darken($main-gray, 60%);
