@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	var SCROLL_CUTOFF = 75;
+	var SCROLL_CUTOFF = 40;
 
 	if($(document).scrollTop() > SCROLL_CUTOFF) {
   		$('nav').addClass('shrink');

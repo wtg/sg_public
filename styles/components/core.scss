@@ -16,6 +16,11 @@ p {
 
 a {
     color: $main-red;
+
+    &:hover {
+        color: darken($main-red, 20%);
+        text-decoration: none;
+    }
 }
 
 .text-center {
@@ -122,5 +127,17 @@ ul {
         li a {
             @extend .btn;
         }
+    }
+}
+
+.col-sm-new-row {
+    @media screen and (max-width: $small-breakpoint) {
+        clear: both;
+    }
+}
+
+.col-md-new-row {
+    @media screen and (max-width: $medium-breakpoint) {
+        clear: both;
     }
 }

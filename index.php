@@ -12,7 +12,6 @@
         <section class="banner">
             <div class="content">
                 <h1>Exciting new update is coming soon!</h1>
-                <p>Bureaucracy bureaucracy bureaucracy bureaucracy bureaucracy bureaucracy bureaucracy.</p>
             </div>
         </section>
         <section class="row">
@@ -30,6 +29,7 @@
                     </div>
                 </a>
                 <a class="btn btn-inverse pull-right" href="/updates">View All</a>
+                <div class="clearfix"></div>
             </div>
             <div class="col-lg-4">
                 <h2>Upcoming Events</h2>
@@ -58,6 +58,7 @@
                     </div>
                 </a>
                 <a class="btn btn-inverse pull-right" href="/events">View All</a>
+                <div class="clearfix"></div>
             </div>
             <div class="col-lg-4">
                 <h2>Recent Actions &amp; Legislation</h2>
@@ -82,6 +83,7 @@
                     }
                 ?>
                 <a class="btn btn-inverse pull-right" href="/actions">View All</a>
+                <div class="clearfix"></div>
             </div>
         </section>
     </main>

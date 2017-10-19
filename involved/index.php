@@ -1,3 +1,7 @@
+<?php
+$gm = json_decode(file_get_contents("https://data.sg.rpi.edu/api/memberships?positionId=1&endDate=null"), true)[0];
+$pu = json_decode(file_get_contents("https://data.sg.rpi.edu/api/memberships?positionId=19&endDate=null"), true)[0];
+?>
 <!DOCTYPE html>
 <html>
 <?php require_once '../partials/head.php' ?>
@@ -75,7 +79,11 @@
             <div class="col-xs-12">
                 <h2>Contact student government</h2>
                 <p class="lead">
-                    As always, you can reach out to the Grand Marshal, Justin Etzine, at <a href="mailto:gm@rpi.edu">gm@rpi.edu</a>, and the President of the Union, Matt Rand, at <a href="mailto:pu@rpi.edu">pu@rpi.edu</a> if you have any questions, comments, ideas, or concerns.
+                    As always, you can reach out to the
+                    <?=$gm['position']['name']?>, <?=$gm['person']['name']?>, at <a href="mailto:<?=$gm['person']['email']?>"><?=$gm['person']['email']?></a>,
+                    and the
+                    <?=$pu['position']['name']?>, <?=$pu['person']['name']?>, at <a href="mailto:<?=$pu['person']['email']?>"><?=$pu['person']['email']?></a>
+                    if you have any questions, comments, ideas, or concerns.
                 </p>
             </div>
         </section>

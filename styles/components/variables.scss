@@ -2,12 +2,14 @@ $main-red: #c40000;
 $main-gray: #eeeeee;
 $text-color: mix(#333333, $main-red, 80%);
 $small-breakpoint: 991px;
+$medium-breakpoint: 1199px;
+$nav-border-radius: 0.2rem;
 
 
 @mixin lato-font() {
-    font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 @mixin palatino-font() {
-    font-family: 'Palatino', serif;
+  font-family: 'Palatino', serif;
 }

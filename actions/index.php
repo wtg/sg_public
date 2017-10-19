@@ -200,7 +200,7 @@ $activeSessions = json_decode(file_get_contents("https://data.sg.rpi.edu/api/ses
 
                     echo '</form>';
 
-                    echo '<br><h3>Filter by body</h3>';
+                    echo '<hr><h3>Filter by body</h3>';
 
                     echo '<a class="' . (!isset($_GET['body']) ? 'active' : '') . '" href="/actions"><strong>All bodies</strong></a>';
 
@@ -215,7 +215,7 @@ $activeSessions = json_decode(file_get_contents("https://data.sg.rpi.edu/api/ses
                         echo "<a " . $classes . "href=\"/actions?body=$entry[uniqueId]\">$entry[name]</a>";
                     }
 
-                    echo "<br><h3>Filter by active session</h3>";
+                    echo "<hr><h3>Filter by active session</h3>";
 
                     foreach ($activeSessions as $session) {
                         $classes = '';
@@ -228,7 +228,7 @@ $activeSessions = json_decode(file_get_contents("https://data.sg.rpi.edu/api/ses
                     }
 
                     if(isset($active) && count($active['sessions']) > 0) {
-                        echo "<br><h3>Filter by $active[name] session</h3>";
+                        echo "<hr><h3>Filter by $active[name] session</h3>";
 
                         if (isset($_GET['body']) && $_GET['body'] == $entry['uniqueId']) {
                             $active = json_decode(json_encode($entry), true);
