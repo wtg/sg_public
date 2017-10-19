@@ -53,11 +53,6 @@ if(isset($_GET['q'])) {
     $actionsParams .= "q=$_GET[q]";
 }
 
-if(isset($_GET['q'])) {
-    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
-    $actionsParams .= "q=$_GET[q]";
-}
-
 if(isset($_GET['page'])) {
     $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
 
