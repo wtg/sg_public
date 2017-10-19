@@ -27,7 +27,7 @@ section.banner {
         width: 100%;
         background-color: rgba(darken($main-red, 10%), 0.5);
         color: white;
-        padding: 2rem 2rem 3rem 2rem;
+        padding: 2rem;
     }
 
     * {
@@ -37,6 +37,7 @@ section.banner {
     p {
         @include lato-font();
         margin-top: 0.1rem;
+        margin-bottom: 1rem;
         font-size: 1rem;
     }
 }

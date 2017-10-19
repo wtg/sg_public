@@ -1820,12 +1820,13 @@ section.banner {
     width: 100%;
     background-color: rgba(145, 0, 0, 0.5);
     color: white;
-    padding: 2rem 2rem 3rem 2rem; }
+    padding: 2rem; }
   section.banner * {
     margin: 0; }
   section.banner p, section.banner .lead, section.banner ol, section.banner ul {
     font-family: 'Lato', sans-serif;
     margin-top: 0.1rem;
+    margin-bottom: 1rem;
     font-size: 1rem; }
 
 main {
