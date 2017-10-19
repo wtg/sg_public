@@ -27,7 +27,7 @@ $pu = json_decode(file_get_contents("https://data.sg.rpi.edu/api/memberships?pos
         <section class="row">
             <div class="col-md-3">
                 <a class="update-item" href="/about">
-                    <div class="update-image" style="background-image: url('http://stugov.union.rpi.edu/studentgovernment/wp-content/uploads/2015/03/20140506_Banner_0001.jpg')">
+                    <div class="update-image" style="background-image: url('//sg.rpi.edu/studentgovernment/wp-content/uploads/2015/03/20140506_Banner_0001.jpg')">
                     </div>
                     <div class="update-content">
                         <h4>Join Committees</h4>
@@ -39,7 +39,7 @@ $pu = json_decode(file_get_contents("https://data.sg.rpi.edu/api/memberships?pos
             </div>
             <div class="col-md-3">
                 <a class="update-item" href="http://petitions.union.rpi.edu/">
-                    <div class="update-image" style="background-image: url('https://poly.rpi.edu/wp-content/uploads/2014-03-26/senate_webleveled_-_joseph_shen.jpg')">
+                    <div class="update-image" style="background-image: url('//poly.rpi.edu/wp-content/uploads/2014-03-26/senate_webleveled_-_joseph_shen.jpg')">
                     </div>
                     <div class="update-content">
                         <h4>Petition the Senate</h4>
@@ -51,7 +51,7 @@ $pu = json_decode(file_get_contents("https://data.sg.rpi.edu/api/memberships?pos
             </div>
             <div class="col-md-3">
                 <a class="update-item" href="/updates">
-                    <div class="update-image" style="background-image: url('https://poly.rpi.edu/wp-content/uploads/2017-04-19/senate_-_webleveled_-_jonathan_caicedo.jpg')">
+                    <div class="update-image" style="background-image: url('//poly.rpi.edu/wp-content/uploads/2017-04-19/senate_-_webleveled_-_jonathan_caicedo.jpg')">
                     </div>
                     <div class="update-content">
                         <h4>Present to the Senate</h4>
@@ -63,7 +63,7 @@ $pu = json_decode(file_get_contents("https://data.sg.rpi.edu/api/memberships?pos
             </div>
             <div class="col-md-3">
                 <a class="update-item" href="http://elections.union.rpi.edu">
-                    <div class="update-image" style="background-image: url('https://poly.rpi.edu/wp-content/uploads/2012-04-18/rpi_4549.jpg')">
+                    <div class="update-image" style="background-image: url('//poly.rpi.edu/wp-content/uploads/2012-04-18/rpi_4549.jpg')">
                     </div>
                     <div class="update-content">
                         <h4>Run for office</h4>
