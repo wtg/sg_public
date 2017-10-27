@@ -1,3 +1,9 @@
+<?php
+include_once 'partials/Parsedown.php';
+include_once 'partials/api.php';
+$data = json_decode(file_get_contents($API_BASE . "api/actions?count=3"), true);
+
+?>
 <!DOCTYPE html>
 <html>
 <?php require_once 'partials/head.php' ?>
@@ -63,12 +69,7 @@
             <div class="col-lg-4">
                 <h2>Recent Actions &amp; Legislation</h2>
                 <?php
-                    include_once 'partials/Parsedown.php';
                     $Parsedown = new Parsedown();
-
-
-                    $url = "https://data.sg.rpi.edu/api/actions?count=3";
-                    $data = json_decode(file_get_contents($url), true);
 
                     foreach($data as $entry) {
                         echo "<a class=\"update-item\" href=\"/actions?body=$entry[bodyUniqueId]&session=$entry[sessionUniqueId]&meeting=$entry[meetingNum]&action=$entry[actionNum]\">

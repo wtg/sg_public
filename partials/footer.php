@@ -1,3 +1,8 @@
+<?php
+include_once 'api.php';
+
+$bodies = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
+?>
 <footer class="footer">
     <div class="primary-footer container">
         <div class="row">
@@ -5,7 +10,6 @@
                 <h3>Student Government</h3>
                 <ul>
                     <?php
-                    $bodies = json_decode(file_get_contents("https://data.sg.rpi.edu/api/bodies"), true);
                     foreach($bodies as $b) {
                         echo "<li><a href='/about/body.php?body=$b[uniqueId]'>$b[name]</a></li>";
                     }
@@ -61,7 +65,7 @@
     <div class="secondary-footer">
         <div class="container">
             <ul>
-                <li><a href="https://data.sg.rpi.edu/">API</a></li>
+                <li><a href="<?=$API_BASE?>">API</a></li>
                 <li><a href="https://admin.sg.rpi.edu/">Log In</a></li>
             </ul>
             <p>Copyright &copy; 2017 &ndash; Rensselaer Union</p>

@@ -1,5 +1,7 @@
 <?php
 include_once '../partials/Parsedown.php';
+include_once '../partials/api.php';
+
 $Parsedown = new Parsedown();
 
 function constructUrlParams($page) {
@@ -79,7 +81,7 @@ $actionsParams .= "count=" . $numPerPage;
 
 
 
-$data = json_decode(file_get_contents("https://data.sg.rpi.edu/api/actions/" . $actionsParams), true);
+$data = json_decode(file_get_contents($API_BASE . "api/actions" . $actionsParams), true);
 
 foreach($http_response_header as $h) {
     $header = explode(": ", $h, 2);
@@ -96,7 +98,7 @@ foreach($http_response_header as $h) {
     }
 }
 
-$activeSessions = json_decode(file_get_contents("https://data.sg.rpi.edu/api/sessions?active=true"), true);
+$activeSessions = json_decode(file_get_contents($API_BASE . "api/sessions?active=true"), true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -172,8 +174,7 @@ $activeSessions = json_decode(file_get_contents("https://data.sg.rpi.edu/api/ses
                 ?>
             </div>
             <?php
-                $url = "https://data.sg.rpi.edu/api/bodies";
-                $data = json_decode(file_get_contents($url), true);
+                $data = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
 
                 $i = 0;
 

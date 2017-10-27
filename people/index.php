@@ -1,3 +1,11 @@
+<?php
+include_once '../partials/api.php';
+
+$unionOfficers = json_decode(file_get_contents($API_BASE . "api/positions"), true);
+$sessions = json_decode(file_get_contents($API_BASE . "api/sessions?active=true"), true);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <?php require_once '../partials/head.php' ?>
@@ -16,8 +24,6 @@
         </section>
         <section class="row">
             <?php
-            $unionOfficers = json_decode(file_get_contents("https://data.sg.rpi.edu/api/positions?presidingOfficer=true"), true);
-
             foreach($unionOfficers as $position) {
                 foreach($position['memberships'] as $m) {
                     if($m['current']) {
@@ -45,8 +51,6 @@
         </section>
         <section class="row">
             <?php
-            $sessions = json_decode(file_get_contents("https://data.sg.rpi.edu/api/sessions?active=true"), true);
-
             foreach($sessions as $s) {
                 $name = $s['body']['name'];
                 echo "<div class='col-lg-fifth col-md-6'>

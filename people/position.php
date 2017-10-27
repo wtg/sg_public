@@ -1,11 +1,12 @@
+<?php
+include_once '../partials/api.php';
+
+$id = $_GET['id'];
+$position = json_decode(file_get_contents($API_BASE . "api/positions?id=$id"), true)[0];
+?>
 <!DOCTYPE html>
 <html>
-<?php
-$id = $_GET['id'];
-$position = json_decode(file_get_contents("https://data.sg.rpi.edu/api/positions?id=$id"), true)[0];
-
-require_once '../partials/head.php';
-?>
+<?php require_once '../partials/head.php'; ?>
 <body>
     <?php require_once '../partials/nav.php'; ?>
     <main class="container">

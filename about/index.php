@@ -1,3 +1,9 @@
+<?php
+include_once '../partials/api.php';
+
+$bodies = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
+$subbodies = json_decode(file_get_contents($API_BASE . 'api/subbodies' . (isset($_GET['body']) ? "?bodyUniqueId=$_GET[body]" : '')), true);
+?>
 <!DOCTYPE html>
 <html>
 <?php require_once '../partials/head.php' ?>
@@ -98,10 +104,7 @@
                 <h3>Filter by Body</h3>
                 <a href="/about#subbodies" <?=(isset($_GET['body']) ? '' : 'class="active"') ?>>All Bodies</a>
                 <?php
-                    $url = "https://data.sg.rpi.edu/api/bodies";
-                    $data = json_decode(file_get_contents($url), true);
-
-                    foreach($data as $entry) {
+                    foreach($bodies as $entry) {
                         echo "<a href=\"/about?body=$entry[uniqueId]#subbodies\""
                             . ((isset($_GET['body']) && $_GET['body'] == $entry['uniqueId']) ? 'class="active"' : '')
                             . ">$entry[name]</a>";
@@ -111,9 +114,6 @@
             <div class="col-md-10">
                 <div class="row">
                     <?php
-                        $url = 'https://data.sg.rpi.edu/api/subbodies' . (isset($_GET['body']) ? "?bodyUniqueId=$_GET[body]" : '');
-                        $subbodies = json_decode(file_get_contents($url), true);
-
                         if(count($subbodies) === 0) {
                             echo "<p class='text-muted'>No sub-bodies were found for this body!</p>";
                         }

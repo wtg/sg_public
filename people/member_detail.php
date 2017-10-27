@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html>
 <?php
+include_once '../partials/api.php';
+
 $rcsId = $_GET['rcsId'];
-$m = json_decode(file_get_contents("https://data.sg.rpi.edu/api/people?rcsId=$rcsId"), true)[0];
+$m = json_decode(file_get_contents($API_BASE . "api/people/$rcsId"), true);
 
 $pos = "";
 $pastPos = "";
@@ -49,9 +49,10 @@ if(isset($m['image'])) {
 } else {
     $image = '/img/blank_profile.png';
 }
-
-require_once '../partials/head.php';
 ?>
+<!DOCTYPE html>
+<html>
+<?php require_once '../partials/head.php'; ?>
 <body>
     <?php require_once '../partials/nav.php'; ?>
     <main class="container">
