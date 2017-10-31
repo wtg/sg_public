@@ -1,7 +1,7 @@
 <?php
 include_once '../partials/api.php';
 
-$unionOfficers = json_decode(file_get_contents($API_BASE . "api/positions"), true);
+$unionOfficers = json_decode(file_get_contents($API_BASE . "api/positions?presidingOfficer=true"), true);
 $sessions = json_decode(file_get_contents($API_BASE . "api/sessions?active=true"), true);
 
 ?>
@@ -27,7 +27,11 @@ $sessions = json_decode(file_get_contents($API_BASE . "api/sessions?active=true"
             foreach($unionOfficers as $position) {
                 foreach($position['memberships'] as $m) {
                     if($m['current']) {
-                        $image = $m['person']['image'];
+                        if(isset($m['person']['image'])) {
+                           $image = $m['person']['image'];
+                        } else {
+                            $image = "//photos.sg.rpi.edu/headshot_$m[personRcsId].jpg";
+                        }
                         $name = $m['person']['name'];
                         echo "<div class='col-lg-fifth col-md-4 col-xs-6'>
                             <a class='person-item' href='/people/member_detail.php?rcsId=$m[personRcsId]'>
