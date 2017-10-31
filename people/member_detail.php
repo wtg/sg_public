@@ -47,8 +47,9 @@ if(isset($m['campusInvolvements'])) {
 if(isset($m['image'])) {
     $image = $m['image'];
 } else {
-    $image = '/img/blank_profile.png';
+    $image = "//photos.sg.rpi.edu/headshot_$m[rcsId].jpg";
 }
+
 ?>
 <!DOCTYPE html>
 <html>

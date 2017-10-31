@@ -31,7 +31,7 @@
 
                 $html .= "
                     <div class=\"col-lg-2 col-md-3 col-sm-4 col-xs-6\">
-                        <a class=\"person-item small\" href=\"/updates\">
+                        <a class=\"person-item small\" href=\"/people/member_detail.php?rcsId=$m[personRcsId]\">
                             <div class=\"person-image\" " . ($image != '' ? "style=\"height: 186.65px; background-image: url('$image')\"" : "style=\"height: 186.65px\"") . "></div>
                             <div class=\"person-content\" style=\"min-height: 100px\">
                                 <h4>$personName</h4>
