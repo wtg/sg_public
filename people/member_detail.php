@@ -77,18 +77,22 @@ if(isset($m['image'])) {
                                 </tbody>
                             </table>";
                         }
+
+                        echo "<table class='positions-table'>
+                            <thead>
+                                <tr>
+                                    <td>Email</td>
+                                </tr>
+                            </thead>
+                            <tbody>";
                         if(isset($m['email'])) {
-                            echo "<table class='positions-table'>
-                                <thead>
-                                    <tr>
-                                        <td>Email</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <td><a href=\"mailto:$m[email]\">$m[email]</a></td>
-                                </tbody>
-                            </table>";
+                            echo "<td><a href=\"mailto:$m[email]\">$m[email]</a></td>";
+                        } else {
+                            echo "<td><a href=\"mailto:$m[rcsId]@rpi.edu\">$m[email]</a></td>";
                         }
+                        echo "</tbody>
+                        </table>";
+
                         if(isset($m['hometown'])) {
                             echo "<table class='positions-table'>
                                 <thead>
