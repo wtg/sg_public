@@ -24,12 +24,18 @@ $position = json_decode(file_get_contents($API_BASE . "api/positions?id=$id"), t
                     $pastCount = 0;
 
                     foreach($position['memberships'] as $m) {
-                        $val = "<div class=\"col-lg-2 col-md-3 col-sm-4 col-xs-6\">
+                        if(isset($m['person']['image'])) {
+                            $image = $m['person']['image'];
+                        } else {
+                            $image = "//photos.sg.rpi.edu/headshot_$m[personRcsId].jpg";
+                        }
+
+                        $val = "<div class=\"col-lg-2 col-md-3 col-sm-4 col-xs-6 col-person\">
                             <a class=\"person-item small\" href=\"/people/member_detail.php?rcsId=$m[personRcsId]\">
-                                <div class=\"person-image\" " . ($m['person']['image'] != '' ? "style=\"height: 186.65px; background-image: url('" . $m['person']['image'] . "')\"" : "style=\"height: 186.65px\"") . "></div>
-                                <div class=\"person-content\" style=\"min-height: 100px\">
+                                <div class=\"person-image\" style=\"background-image: url('$image')\"></div>
+                                <div class=\"person-content\">
                                     <h4>" . $m['person']['name'] . "</h4>
-                                    <p class=\"position\" style=\"font-size: 0.75rem;\">$m[name]</p>
+                                    <p class=\"position\">$m[name]</p>
                                 </div>
                             </a>
                         </div>";

@@ -1,0 +1,88 @@
+.profile {
+    .profile-sidebar {
+        background-color: $main-gray;
+        border-radius: 0.25rem;
+
+        .profile-img {
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+        }
+
+        .sidebar-content {
+            padding: 1rem;
+
+            .positions-table {
+                width: 100%;
+                margin-top: 0.7rem;
+
+                &.current {
+                    margin-top: 0;
+                    font-style: italic;
+                    font-size: 1rem;
+
+                    td:first-child {
+                        text-align: left;
+                        font-weight: bold;
+                    }
+                }
+
+                thead td {
+                    padding-top: 0.7rem;
+                    border-top: 0.5px solid mix($text-color, $main-gray, 20%);
+                    text-align: left;
+                    font-weight: bold;
+                    // padding-top: 0.7rem;
+                }
+
+                td {
+                    padding-bottom: 0.1rem;
+                }
+
+                td:nth-child(2) {
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    .biography {
+        .biography-title {
+            margin-top: 0;
+            line-height: 1;
+
+            padding-bottom: 1.3rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid mix($text-color, $main-gray, 20%);
+
+            .position {
+                &:before {
+                    content: ' | ';
+                    color: $text-color;
+                    font-size: 2.5rem;
+
+                    @media (max-width: 992px) {
+                        content: '';
+                        display: block;
+                    }
+                }
+
+                font-variant: small-caps;
+                color: $main-red;
+                font-size: 2rem;
+            }
+        }
+
+        .biography-text {
+            p {
+                font-size: 1.25rem;
+
+                &.lead {
+                    @include lato-font();
+                    font-size: 1.5rem;
+                    font-style: italic;
+                    color: mix($text-color, $main-gray, 30%);
+                }
+            }
+        }
+    }
+}

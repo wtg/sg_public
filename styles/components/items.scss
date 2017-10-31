@@ -55,12 +55,17 @@ a.update-item {
     }
 }
 
+.col-person {
+    @media (min-width: 1200px) {
+        //min-height: 313.656px;
+    }
+}
+
 a.person-item {
     @extend .generic-item;
 
     .person-image {
         @extend .item-image;
-        background-image: url('http://thevaultbicycleshop.com/wp-content/themes/the-vault/images/blank-profile.png');
 
         &.oblong {
             background-image: none;
@@ -84,17 +89,20 @@ a.person-item {
 
     &.small {
         .person-image {
-            height: 10rem;
+            height: 0;
+            padding-top: 100%;
             background-position: top;
         }
 
         .person-content {
+            min-height: 111px;
+
             h4 {
                 font-size: 1rem;
             }
 
             p.position {
-                font-size: 0.85rem;
+                font-size: 0.75rem;
             }
         }
     }
@@ -122,37 +130,5 @@ a.committee-item {
             margin-bottom: 0;
             font-size: 1.05rem;
         }
-    }
-}
-
-.positions-table {
-    width: 100%;
-    margin-top: 0.7rem;
-
-    &.current {
-        margin-top: 1rem;
-        font-style: italic;
-        font-size: 1rem;
-
-        td:first-child {
-            text-align: left;
-            font-weight: bold;
-        }
-    }
-
-    thead td {
-        padding-top: 0.7rem;
-        border-top: 0.5px solid lighten($main-red, 30%);
-        text-align: left;
-        font-weight: bold;
-        // padding-top: 0.7rem;
-    }
-
-    td {
-        padding-bottom: 0.1rem;
-    }
-
-    td:nth-child(2) {
-        text-align: right;
     }
 }

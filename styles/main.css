@@ -1331,11 +1331,9 @@ a.update-item .update-content {
   a.update-item .update-content h4 {
     font-size: 1rem; }
 
-a.person-item .person-image {
-  background-image: url("http://thevaultbicycleshop.com/wp-content/themes/the-vault/images/blank-profile.png"); }
-  a.person-item .person-image.oblong {
-    background-image: none;
-    height: 10rem; }
+a.person-item .person-image.oblong {
+  background-image: none;
+  height: 10rem; }
 a.person-item .person-content {
   text-align: center; }
   a.person-item .person-content h4 {
@@ -1344,12 +1342,15 @@ a.person-item .person-content {
     margin-bottom: 0;
     font-size: 0.95rem; }
 a.person-item.small .person-image {
-  height: 10rem;
+  height: 0;
+  padding-top: 100%;
   background-position: top; }
-a.person-item.small .person-content h4 {
-  font-size: 1rem; }
-a.person-item.small .person-content p.position, a.person-item.small .person-content .position.lead, a.person-item.small .person-content ol.position, a.person-item.small .person-content ul.position {
-  font-size: 0.85rem; }
+a.person-item.small .person-content {
+  min-height: 111px; }
+  a.person-item.small .person-content h4 {
+    font-size: 1rem; }
+  a.person-item.small .person-content p.position, a.person-item.small .person-content .position.lead, a.person-item.small .person-content ol.position, a.person-item.small .person-content ul.position {
+    font-size: 0.75rem; }
 
 a.committee-item .committee-content {
   text-align: center;
@@ -1361,26 +1362,6 @@ a.committee-item .committee-content {
   a.committee-item .committee-content p.position, a.committee-item .committee-content .position.lead, a.committee-item .committee-content ol.position, a.committee-item .committee-content ul.position {
     margin-bottom: 0;
     font-size: 1.05rem; }
-
-.positions-table {
-  width: 100%;
-  margin-top: 0.7rem; }
-  .positions-table.current {
-    margin-top: 1rem;
-    font-style: italic;
-    font-size: 1rem; }
-    .positions-table.current td:first-child {
-      text-align: left;
-      font-weight: bold; }
-  .positions-table thead td {
-    padding-top: 0.7rem;
-    border-top: 0.5px solid #ff5e5e;
-    text-align: left;
-    font-weight: bold; }
-  .positions-table td {
-    padding-bottom: 0.1rem; }
-  .positions-table td:nth-child(2) {
-    text-align: right; }
 
 .nav-fixed, .nav-fixed.shrink, .nav-inverse {
   background-color: rgba(255, 255, 255, 0.97);
@@ -1817,6 +1798,59 @@ input[type="text"] {
     background-color: #fff;
     border-color: #c40000;
     outline: 0; }
+
+.profile .profile-sidebar {
+  background-color: #eeeeee;
+  border-radius: 0.25rem; }
+  .profile .profile-sidebar .profile-img {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem; }
+  .profile .profile-sidebar .sidebar-content {
+    padding: 1rem; }
+    .profile .profile-sidebar .sidebar-content .positions-table {
+      width: 100%;
+      margin-top: 0.7rem; }
+      .profile .profile-sidebar .sidebar-content .positions-table.current {
+        margin-top: 0;
+        font-style: italic;
+        font-size: 1rem; }
+        .profile .profile-sidebar .sidebar-content .positions-table.current td:first-child {
+          text-align: left;
+          font-weight: bold; }
+      .profile .profile-sidebar .sidebar-content .positions-table thead td {
+        padding-top: 0.7rem;
+        border-top: 0.5px solid #cec7c7;
+        text-align: left;
+        font-weight: bold; }
+      .profile .profile-sidebar .sidebar-content .positions-table td {
+        padding-bottom: 0.1rem; }
+      .profile .profile-sidebar .sidebar-content .positions-table td:nth-child(2) {
+        text-align: right; }
+.profile .biography .biography-title {
+  margin-top: 0;
+  line-height: 1;
+  padding-bottom: 1.3rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #cec7c7; }
+  .profile .biography .biography-title .position {
+    font-variant: small-caps;
+    color: #c40000;
+    font-size: 2rem; }
+    .profile .biography .biography-title .position:before {
+      content: ' | ';
+      color: #502929;
+      font-size: 2.5rem; }
+      @media (max-width: 992px) {
+        .profile .biography .biography-title .position:before {
+          content: '';
+          display: block; } }
+.profile .biography .biography-text p, .profile .biography .biography-text .lead, .profile .biography .biography-text ol, .profile .biography .biography-text ul {
+  font-size: 1.25rem; }
+  .profile .biography .biography-text p.lead, .profile .biography .biography-text .lead, .profile .biography .biography-text ol.lead, .profile .biography .biography-text ul.lead {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #bfb3b3; }
 
 section.banner {
   position: relative;

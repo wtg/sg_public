@@ -57,108 +57,111 @@ if(isset($m['image'])) {
 <body>
     <?php require_once '../partials/nav.php'; ?>
     <main class="container">
-        <section class="row" style="margin-top: 2rem">
+        <section class="row profile" style="margin-top: 2rem">
             <?php
                 echo "
-                    <div class='col-sm-4'>
-                        <div class='profile-img' style='background-image: url($image)'></div>
-                        <table class='positions-table current'>
-                            $pos
-                        </table>";
-                        if(isset($m['memberships'])) {
-                            echo "<table class='positions-table'>
-                                <thead>
-                                    <tr>
-                                        <td colspan='2'>Past Roles:</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    $pastPos
-                                </tbody>
-                            </table>";
-                        }
-
-                        echo "<table class='positions-table'>
-                            <thead>
-                                <tr>
-                                    <td>Email</td>
-                                </tr>
-                            </thead>
-                            <tbody>";
-                        if(isset($m['email'])) {
-                            echo "<td><a href=\"mailto:$m[email]\">$m[email]</a></td>";
-                        } else {
-                            echo "<td><a href=\"mailto:$m[rcsId]@rpi.edu\">$m[rcsId]@rpi.edu</a></td>";
-                        }
-                        echo "</tbody>
-                        </table>";
-
-                        if(isset($m['hometown'])) {
-                            echo "<table class='positions-table'>
-                                <thead>
-                                    <tr>
-                                        <td>Hometown</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <td>$m[hometown]</td>
-                                </tbody>
-                            </table>";
-                        }
-                        if(isset($m['classYear'])) {
-                            echo "<table class='positions-table'>
-                                <thead>
-                                    <tr>
-                                        <td>Class Year</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <td>$m[classYear]</td>
-                                </tbody>
-                            </table>";
-                        }
-                        if(isset($m['major'])) {
-                            echo "<table class='positions-table'>
-                                <thead>
-                                    <tr>
-                                        <td>Major</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <td>$m[major]</td>
-                                </tbody>
-                            </table>";
-                        }
-                        if(isset($m['committeeAssignments'])) {
-                            echo "<table class='positions-table'>
-                                <thead>
-                                    <tr>
-                                        <td>Committee Assignments</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <td>$assignments</td>
-                                </tbody>
-                            </table>";
-                        }
-                        if(isset($m['campusInvolvements'])) {
-                            echo "<table class='positions-table'>
-                                <thead>
-                                    <tr>
-                                        <td>Other Campus Involvements</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <td>$involvements</td>
-                                </tbody>
-                            </table>";
-                        }
-                    echo "</div>
-                    <div class='col-sm-8 biography'>
-                        <h1 style='margin-top: 0; line-height: 1'>$m[name]</h1>
-                        <h2 style='font-size: 1.6rem'>$positionHeadline</h2>
-                        <div class='lead'>$m[biographyHtml]</div>
+                    <div class='col-sm-7 col-md-8 biography col-sm-push-5 col-md-push-4'>
+                        <h1 class='biography-title'>$m[name]<span class='position'>$positionHeadline</span></h1>
+                        <div class='biography-text'>$m[biographyHtml]</div>
                     </div>
+                    <div class='col-sm-5 col-md-4 col-sm-pull-7 col-md-pull-8'>
+                        <div class='profile-sidebar'>
+                            <div class='profile-img' style='background-image: url($image)'></div>
+                            <div class='sidebar-content'>
+                                <table class='positions-table current'>
+                                    $pos
+                                </table>";
+                                if(isset($m['memberships'])) {
+                                    echo "<table class='positions-table'>
+                                        <thead>
+                                            <tr>
+                                                <td colspan='2'>Past Roles:</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            $pastPos
+                                        </tbody>
+                                    </table>";
+                                }
+
+                                echo "<table class='positions-table'>
+                                    <thead>
+                                        <tr>
+                                            <td>Email</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>";
+                                if(isset($m['email'])) {
+                                    echo "<td><a href=\"mailto:$m[email]\">$m[email]</a></td>";
+                                } else {
+                                    echo "<td><a href=\"mailto:$m[rcsId]@rpi.edu\">$m[rcsId]@rpi.edu</a></td>";
+                                }
+                                echo "</tbody>
+                                </table>";
+
+                                if(isset($m['hometown'])) {
+                                    echo "<table class='positions-table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Hometown</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <td>$m[hometown]</td>
+                                        </tbody>
+                                    </table>";
+                                }
+                                if(isset($m['classYear'])) {
+                                    echo "<table class='positions-table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Class Year</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <td>$m[classYear]</td>
+                                        </tbody>
+                                    </table>";
+                                }
+                                if(isset($m['major'])) {
+                                    echo "<table class='positions-table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Major</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <td>$m[major]</td>
+                                        </tbody>
+                                    </table>";
+                                }
+                                if(isset($m['committeeAssignments'])) {
+                                    echo "<table class='positions-table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Committee Assignments</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <td>$assignments</td>
+                                        </tbody>
+                                    </table>";
+                                }
+                                if(isset($m['campusInvolvements'])) {
+                                    echo "<table class='positions-table'>
+                                        <thead>
+                                            <tr>
+                                                <td>Other Campus Involvements</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <td>$involvements</td>
+                                        </tbody>
+                                    </table>";
+                                }
+                            echo '</div>';
+                        echo "</div>";
+                    echo "</div>
                 ";
             ?>
         </section>
