@@ -88,7 +88,7 @@ if(isset($m['image'])) {
                         if(isset($m['email'])) {
                             echo "<td><a href=\"mailto:$m[email]\">$m[email]</a></td>";
                         } else {
-                            echo "<td><a href=\"mailto:$m[rcsId]@rpi.edu\">$m[email]</a></td>";
+                            echo "<td><a href=\"mailto:$m[rcsId]@rpi.edu\">$m[rcsId]@rpi.edu</a></td>";
                         }
                         echo "</tbody>
                         </table>";
