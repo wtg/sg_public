@@ -61,7 +61,7 @@ if(isset($m['image'])) {
             <?php
                 echo "
                     <div class='col-sm-4'>
-                        <img class='img-responsive' src='$image' />
+                        <div class='profile-img' style='background-image: url($image)'></div>
                         <table class='positions-table current'>
                             $pos
                         </table>";

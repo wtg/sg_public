@@ -1289,6 +1289,12 @@ ul.button-list {
   .col-md-new-row {
     clear: both; } }
 
+.profile-img {
+  width: 100%;
+  padding-top: 100%;
+  background-size: contain;
+  background-repeat: no-repeat; }
+
 a.generic-item, a.update-item, a.person-item, a.committee-item {
   display: block;
   box-sizing: padding-box;
