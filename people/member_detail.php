@@ -71,7 +71,7 @@ if(isset($m['image'])) {
                                 <table class='positions-table current'>
                                     $pos
                                 </table>";
-                                if(isset($m['memberships'])) {
+                                if(isset($m['memberships']) && strlen($pastPos) > 0) {
                                     echo "<table class='positions-table'>
                                         <thead>
                                             <tr>
