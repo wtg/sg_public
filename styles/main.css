@@ -1351,6 +1351,11 @@ a.person-item.small .person-content {
     font-size: 1rem; }
   a.person-item.small .person-content p.position, a.person-item.small .person-content .position.lead, a.person-item.small .person-content ol.position, a.person-item.small .person-content ul.position {
     font-size: 0.75rem; }
+a.person-item.no-image .person-content {
+  border-radius: 0.25rem;
+  min-height: 0; }
+a.person-item.no-image h4 {
+  margin-bottom: 0; }
 
 a.committee-item .committee-content {
   text-align: center;
@@ -1465,12 +1470,17 @@ a.committee-item .committee-content {
             display: block; }
           .nav-fixed .container ul.right-nav li, .nav-inverse .container ul.right-nav li {
             display: inline-block;
-            width: 30%;
+            min-width: 30%;
             text-align: center;
             font-size: 22px; }
             .nav-fixed .container ul.right-nav li a, .nav-inverse .container ul.right-nav li a {
-              padding: 1.5rem;
-              margin: 2rem 0.25rem; } }
+              padding: 1rem;
+              margin: 1rem 0.1rem; } }
+      @media screen and (max-width: 767px) {
+        .nav-fixed .container ul.right-nav li, .nav-inverse .container ul.right-nav li {
+          min-width: 45%; }
+          .nav-fixed .container ul.right-nav li a, .nav-inverse .container ul.right-nav li a {
+            padding: 0.5rem; } }
     .nav-fixed .container .logo, .nav-inverse .container .logo {
       float: left;
       display: block;
@@ -1522,8 +1532,8 @@ a.committee-item .committee-content {
         padding: 0.3rem 0.75rem; }
         @media screen and (max-width: 991px) {
           .nav-fixed.shrink .container ul.right-nav li a, .shrink.nav-inverse .container ul.right-nav li a {
-            padding: 1rem;
-            margin: 2rem 0.1rem; } }
+            padding: 0.5rem;
+            margin: 0.8rem 0.1rem; } }
 
 .nav-inverse {
   background-color: rgba(145, 0, 0, 0.8);
@@ -1814,6 +1824,8 @@ input[type="text"] {
         margin-top: 0;
         font-style: italic;
         font-size: 1rem; }
+        .profile .profile-sidebar .sidebar-content .positions-table.current tbody td {
+          padding-top: 0; }
         .profile .profile-sidebar .sidebar-content .positions-table.current td:first-child {
           text-align: left;
           font-weight: bold; }
@@ -1822,6 +1834,8 @@ input[type="text"] {
         border-top: 0.5px solid #cec7c7;
         text-align: left;
         font-weight: bold; }
+      .profile .profile-sidebar .sidebar-content .positions-table tbody td {
+        padding-top: 0.4rem; }
       .profile .profile-sidebar .sidebar-content .positions-table td {
         padding-bottom: 0.1rem; }
       .profile .profile-sidebar .sidebar-content .positions-table td:nth-child(2) {

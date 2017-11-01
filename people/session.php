@@ -66,7 +66,15 @@
             foreach($otherSessions as $s) {
                 if($s['uniqueId'] == $uniqueId) continue;
 
-                echo "<div class='col-xs-3'><p><a class='btn' href='/people/session.php?bodyUniqueId=$bodyUniqueId&uniqueId=$s[uniqueId]'>$s[name]</a></p></div>";
+                echo "
+                    <div class='col-lg-2 col-md-3 col-sm-4 col-xs-6'>
+                        <a class='person-item small no-image' href='/people/session.php?bodyUniqueId=$bodyUniqueId&uniqueId=$s[uniqueId]'>
+                            <div class='person-content'>
+                                <h4>$s[name]</h4>
+                            </div>
+                        </a>
+                    </div>
+                ";
             }
             ?>
         </section>

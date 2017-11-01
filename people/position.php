@@ -22,6 +22,8 @@ $position = json_decode(file_get_contents($API_BASE . "api/positions?id=$id"), t
                     $pastHolders = '';
                     $currentCount = 0;
                     $pastCount = 0;
+                    $currentRcsIds = [];
+                    $pastRcsIds = [];
 
                     foreach($position['memberships'] as $m) {
                         if(isset($m['person']['image'])) {
@@ -42,9 +44,11 @@ $position = json_decode(file_get_contents($API_BASE . "api/positions?id=$id"), t
 
                         if(!isset($m['endDate'])) {
                             $currentHolders .= $val;
+                            $currentRcsIds[] = $m['personRcsId'];
                             $currentCount++;
-                        } else {
+                        } else if(!array_search($m['personRcsId'], $currentRcsIds) && !array_search($m['personRcsId'], $pastRcsIds)) {
                             $pastHolders .= $val;
+                            $pastRcsIds[] = $m['personRcsId'];
                             $pastCount++;
                         }
                     }

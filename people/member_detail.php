@@ -21,13 +21,13 @@ if(isset($m['memberships'])) {
 
     foreach ($m['memberships'] as $p) {
         if($p['current']) {
-            $pos .= "<tr><td><a href='/people/position.php?id=$p[positionId]'>$p[name]</a></td><td>$p[term]</td></tr>";
+            $pos .= "<tr><td><a href='/people/position.php?id=$p[positionId]'>$p[name]</a></td><td width='35%'>$p[term]</td></tr>";
             if(strlen($positionHeadline) > 0) {
                 $positionHeadline .= ", ";
             }
             $positionHeadline = "$p[name]";
         } else {
-            $pastPos .= "<tr><td><a href='/people/position.php?id=$p[positionId]'>$p[name]</a></td><td>$p[term]</td></tr>";
+            $pastPos .= "<tr><td><a href='/people/position.php?id=$p[positionId]'>$p[name]</a></td><td width='35%'>$p[term]</td></tr>";
         }
     }
 
@@ -75,7 +75,8 @@ if(isset($m['image'])) {
                                     echo "<table class='positions-table'>
                                         <thead>
                                             <tr>
-                                                <td colspan='2'>Past Roles:</td>
+                                                <td>Past Roles:</td>
+                                                <td width='35%'></td>
                                             </tr>
                                         </thead>
                                         <tbody>

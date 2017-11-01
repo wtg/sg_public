@@ -106,6 +106,17 @@ a.person-item {
             }
         }
     }
+
+    &.no-image {
+        .person-content {
+            border-radius: 0.25rem;
+            min-height: 0;
+        }
+
+        h4 {
+            margin-bottom: 0;
+        }
+    }
 }
 
 a.committee-item {
