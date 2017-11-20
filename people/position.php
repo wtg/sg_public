@@ -64,5 +64,6 @@ $position = json_decode(file_get_contents($API_BASE . "api/positions?id=$id"), t
             </div>
         </section>
     </main>
+    <?php require_once '../partials/footer.php' ?>
 </body>
 </html>

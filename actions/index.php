@@ -138,16 +138,26 @@ $activeSessions = json_decode(file_get_contents($API_BASE . "api/sessions?active
                             if($i > 0) {
                                 echo "<hr />";
                             }
-                            echo "<article><h2>" . $entry["description"] . "</h2>
-                                <p class=\"small text-muted\">" . $entry["meeting"]["displayDate"] . " | Action ID: <strong>" . $entry["actionIndicator"] . "</strong></p>
-                                <p class=\"lead\">" . $Parsedown->text($entry["text"]) . "</p>
-                                <p class=\"lead\"><em>
-                                    So moved by " . (isset($entry["movingSubbodyUniqueId"]) ? ('the ' . $entry["movingSubbody"]["name"]) : $entry["movingMember"]["person"]["name"]) .
-                                    (isset($entry["movingSubbodyUniqueId"]) ? "" : (", and seconded by " . $entry["secondingMember"]["person"]["name"])) . ".
-                                </em></p>
-                                <p><strong>" . $entry["status"] . " by a vote of " . $entry["votesFor"]
-                                    . "-" . $entry["votesAgainst"] . "-" . $entry["abstentions"] . ".</p></strong>
-                            </article>";
+
+                            echo "<article>";
+                            echo "<h2>" . $entry["description"] . "</h2>";
+                            echo "<p class=\"small text-muted\">" . $entry["meeting"]["displayDate"] . " | Action ID: <strong>" . $entry["actionIndicator"] . "</strong></p>";
+                            echo "<p class=\"lead\">" . $Parsedown->text($entry["text"]) . "</p>";
+
+                            echo "<p class=\"lead\"><em>So moved by ";
+                            if(isset($entry["movingSubbodyUniqueId"])) {
+                                echo 'the ' . $entry["movingSubbody"]["name"] . '.';
+                            } else {
+                                $mover = $entry["movingMember"]["person"];
+                                $seconder = $entry["secondingMember"]["person"];
+                                echo "<a href=\"/people/member_detail.php?rcsId=$mover[rcsId]\">$mover[name]</a> and seconded by <a href=\"/people/member_detail.php?rcsId=$seconder[rcsId]\">$seconder[name]</a>.";
+                            }
+                            echo "</em></p>";
+
+                            if($entry["status"] != 'Pending') {
+                                echo "<p><strong>" . $entry["status"] . " by a vote of " . $entry["votesFor"] . "-" . $entry["votesAgainst"] . "-" . $entry["abstentions"] . ".</strong></p>";
+                            }
+                            echo "</article>";
 
                             $i++;
                         }
