@@ -28,77 +28,56 @@ function constructUrlParams($page) {
     return $urlParams;
 }
 
-$actionsParams = '';
+$actionsParams = [];
 
-if(isset($_GET['body'])) {
-    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
-    $actionsParams .= "bodyUniqueId=$_GET[body]";
-}
-
-if(isset($_GET['session'])) {
-    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
-    $actionsParams .= "sessionUniqueId=$_GET[session]";
-}
-
-if(isset($_GET['meeting'])) {
-    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
-    $actionsParams .= "meetingNum=$_GET[meeting]";
-}
-
-if(isset($_GET['action'])) {
-    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
-    $actionsParams .= "actionNum=$_GET[action]";
-}
-
-if(isset($_GET['q'])) {
-    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
-    $actionsParams .= "q=$_GET[q]";
-}
+if(isset($_GET['body']))    $actionsParams['bodyUniqueId'] = $_GET['body'];
+if(isset($_GET['session'])) $actionsParams['sessionUniqueId'] = $_GET['session'];
+if(isset($_GET['meeting'])) $actionsParams['meetingNum'] = $_GET['meeting'];
+if(isset($_GET['action']))  $actionsParams['actionNum'] = $_GET['action'];
+if(isset($_GET['q']))       $actionsParams['q'] = $_GET['q'];
 
 if(isset($_GET['page'])) {
-    $actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
-
     if($_GET['page'] <= 0) {
         header('Location: /actions' . constructUrlParams(0));
         exit;
     }
 
     $currentPage = $_GET['page'];
-
-    $actionsParams .= "page=$currentPage";
+    $actionsParams['page'] = $currentPage;
 } else {
     $currentPage = 0;
 }
 
 if(isset($_GET['count'])) {
-    $numPerPage = $_GET[count];
+    $numPerPage = $_GET['count'];
 } else {
     $numPerPage = 10;
 }
 
-$actionsParams .= (strlen($actionsParams) == 0) ? '?' : '&';
-$actionsParams .= "count=" . $numPerPage;
+$actionsParams['count'] = $numPerPage;
 
+$actions = Actions::read($actionsParams);
 
+//$actions = json_decode(file_get_contents($API_BASE . "api/actions" . $actionsParams), true);
 
-$data = json_decode(file_get_contents($API_BASE . "api/actions" . $actionsParams), true);
+//foreach($http_response_header as $h) {
+//    $header = explode(": ", $h, 2);
+//    if($header[0] == 'Content-Range') {
+//        $contentRange = explode(" ", $header[1], 2)[1];
+//        $startingIndex = explode("-", $contentRange, 2)[0];
+//        $totalActionsCount = explode("/", $contentRange, 2)[1];
+//        $numPages = (int)ceil((float)$totalActionsCount / (float)$numPerPage);
+//
+//        if($startingIndex >= $totalActionsCount && $totalActionsCount > 0) {
+//            header('Location: /actions' . constructUrlParams(($numPages - 1)));
+//            exit;
+//        }
+//    }
+//}
 
-foreach($http_response_header as $h) {
-    $header = explode(": ", $h, 2);
-    if($header[0] == 'Content-Range') {
-        $contentRange = explode(" ", $header[1], 2)[1];
-        $startingIndex = explode("-", $contentRange, 2)[0];
-        $totalActionsCount = explode("/", $contentRange, 2)[1];
-        $numPages = (int)ceil((float)$totalActionsCount / (float)$numPerPage);
-
-        if($startingIndex >= $totalActionsCount && $totalActionsCount > 0) {
-            header('Location: /actions' . constructUrlParams(($numPages - 1)));
-            exit;
-        }
-    }
-}
-
-$activeSessions = json_decode(file_get_contents($API_BASE . "api/sessions?active=true"), true);
+$activeSessions = Sessions::read([
+    'active' => 'true'
+]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -130,11 +109,11 @@ $activeSessions = json_decode(file_get_contents($API_BASE . "api/sessions?active
         <div class="row">
             <div class="col-md-8">
                 <?php
-                    if(count($data) == 0) {
+                    if(count($actions) == 0) {
                         echo "<h3>No actions were found!</h3>";
                     } else {
                         $i = 0;
-                        foreach($data as $entry) {
+                        foreach($actions as $entry) {
                             if($i > 0) {
                                 echo "<hr />";
                             }
@@ -186,13 +165,14 @@ $activeSessions = json_decode(file_get_contents($API_BASE . "api/sessions?active
                 ?>
             </div>
             <?php
-                $data = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
+                $bodies = Bodies::read();
+                // $bodies = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
 
                 $i = 0;
 
                 $active = null;
 
-                if(isset($data)) {
+                if(isset($bodies)) {
                     echo '<div class="col-md-3 col-md-offset-1 sidebar hidden-sm hidden-xs">';
 
                     echo '<form method="get" action="/actions">';
@@ -217,7 +197,7 @@ $activeSessions = json_decode(file_get_contents($API_BASE . "api/sessions?active
 
                     echo '<a class="' . (!isset($_GET['body']) ? 'active' : '') . '" href="/actions"><strong>All bodies</strong></a>';
 
-                    foreach($data as $entry) {
+                    foreach($bodies as $entry) {
                         $classes = '';
 
                         if (isset($_GET['body']) && $_GET['body'] == $entry['uniqueId']) {
