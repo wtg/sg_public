@@ -1,7 +1,8 @@
 <?php
 include_once 'partials/Parsedown.php';
 include_once 'partials/api.php';
-$data = json_decode(file_get_contents($API_BASE . "api/actions?count=3"), true);
+
+date_default_timezone_set('America/New_York');
 
 ?>
 <!DOCTYPE html>
@@ -16,9 +17,9 @@ $data = json_decode(file_get_contents($API_BASE . "api/actions?count=3"), true);
     </style>
     <main class="container landing">
         <section class="banner">
-            <div class="content">
-                <h1>Exciting new update is coming soon!</h1>
-            </div>
+            <a class="content" href="/about">
+                <h1>By the students, for the students.</h1>
+            </a>
         </section>
         <section class="row">
             <div class="col-lg-4">
@@ -39,30 +40,31 @@ $data = json_decode(file_get_contents($API_BASE . "api/actions?count=3"), true);
             </div>
             <div class="col-lg-4">
                 <h2>Upcoming Events</h2>
-                <a class="update-item" href="/events">
-                    <div class="update-content" style="min-height: 0">
-                        <h4>Senate Meeting</h4>
-                        <p class="logistics">Monday, May 1, 2017 | 8 pm</p>
-                    </div>
-                </a>
-                <a class="update-item" href="/updates">
-                    <div class="update-content" style="min-height: 0">
-                        <h4>Procedural Budgeting Forum</h4>
-                        <p class="logistics">Wednesday, April 3, 2017 | 2 pm</p>
-                    </div>
-                </a>
-                <a class="update-item" href="/updates">
-                    <div class="update-content" style="min-height: 0">
-                        <h4>Class of 2018 Council Meeting</h4>
-                        <p class="logistics">Wednesday, April 3, 2017 | 8 pm</p>
-                    </div>
-                </a>
-                <a class="update-item" href="/updates">
-                    <div class="update-content" style="min-height: 0">
-                        <h4>Executive Board Meeting</h4>
-                        <p class="logistics">Thursday, May 4, 2017 | 7:30 pm</p>
-                    </div>
-                </a>
+                <?php
+                    $meetings = Meetings::read([
+                        'sort' => "date"
+                    ]);
+
+                    $displayed = 0;
+
+                    foreach($meetings as $m) {
+                        if($displayed >= 3) break;
+                        if($m['date'] >= date('Y-m-d')) {
+                            echo "<div class='update-item' href='/events'>";
+                            echo "    <div class='update-content' style='min-height: 0'>";
+                            echo "         <h4>" . $m['session']['name'] . " &ndash; Meeting #$m[meetingNum]</h4>";
+                            echo "         <p class='logistics'>$m[displayDate]</p>";
+                            echo "    </div>";
+                            echo "</div>";
+
+                            $displayed++;
+                        }
+                    }
+
+                    if($displayed == 0) {
+                        echo "<p><em>No events are upcoming!</em></p>";
+                    }
+                ?>
                 <a class="btn btn-inverse pull-right" href="/events">View All</a>
                 <div class="clearfix"></div>
             </div>
@@ -70,8 +72,11 @@ $data = json_decode(file_get_contents($API_BASE . "api/actions?count=3"), true);
                 <h2>Recent Actions &amp; Legislation</h2>
                 <?php
                     $Parsedown = new Parsedown();
+                    $actions = Actions::read([
+                        "count" => "3"
+                    ]);
 
-                    foreach($data as $entry) {
+                    foreach($actions as $entry) {
                         echo "<a class=\"update-item\" href=\"/actions?body=$entry[bodyUniqueId]&session=$entry[sessionUniqueId]&meeting=$entry[meetingNum]&action=$entry[actionNum]\">
                             <div class=\"update-content\">
                                 <h4>" . $entry["description"] . "</h4>

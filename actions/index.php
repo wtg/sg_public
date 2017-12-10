@@ -146,7 +146,9 @@ $activeSessions = json_decode(file_get_contents($API_BASE . "api/sessions?active
 
                             echo "<p class=\"lead\"><em>So moved by ";
                             if(isset($entry["movingSubbodyUniqueId"])) {
-                                echo 'the ' . $entry["movingSubbody"]["name"] . '.';
+                                echo 'the ' . $entry["subbody"]["name"] . '.';
+                            } else if(isset($entry['movingOtherEntity'])) {
+                                echo 'the ' . $entry["movingOtherEntity"] . '.';
                             } else {
                                 $mover = $entry["movingMember"]["person"];
                                 $seconder = $entry["secondingMember"]["person"];

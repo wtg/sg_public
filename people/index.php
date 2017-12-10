@@ -57,9 +57,10 @@ $sessions = json_decode(file_get_contents($API_BASE . "api/sessions?active=true"
             <?php
             foreach($sessions as $s) {
                 $name = $s['body']['name'];
+                $image = "//photos.sg.rpi.edu/body_$s[bodyUniqueId].jpg";
                 echo "<div class='col-lg-fifth col-md-6'>
                     <a class='person-item' href='/people/session.php?bodyUniqueId=$s[bodyUniqueId]&uniqueId=$s[uniqueId]'>
-                        <div class='person-image oblong'></div>
+                        <div class='person-image oblong' style='background-image: url(\"$image\")'></div>
                         <div class='person-content'>
                             <h4>$name</h4>
                         </div>
