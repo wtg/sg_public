@@ -113,6 +113,7 @@ $activeSessions = Sessions::read([
                         echo "<h3>No actions were found!</h3>";
                     } else {
                         $i = 0;
+                        echo $actions;
                         foreach($actions as $entry) {
                             if($i > 0) {
                                 echo "<hr />";
