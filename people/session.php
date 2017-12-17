@@ -1,5 +1,5 @@
 <?php
-    include_once '../partials/api.php';
+    include_once '../includes/sg_data_php_driver/api.php';
 
     $uniqueId = $_GET['uniqueId'];
     $bodyUniqueId = $_GET['bodyUniqueId'];

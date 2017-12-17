@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <?php require_once '../partials/head.php' ?>
-<?php require_once '../partials/api.php' ?>
+<?php require_once '../includes/sg_data_php_driver/api.php' ?>
 <body>
     <?php require_once '../partials/nav.php'; ?>
     <main class="container">

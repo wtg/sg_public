@@ -1,6 +1,6 @@
 <?php
 include_once 'partials/Parsedown.php';
-include_once 'partials/api.php';
+include_once 'includes/sg_data_php_driver/api.php';
 
 date_default_timezone_set('America/New_York');
 

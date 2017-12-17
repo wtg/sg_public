@@ -1,5 +1,5 @@
 <?php
-include_once '../partials/api.php';
+include_once '../includes/sg_data_php_driver/api.php';
 
 $gm = json_decode(file_get_contents($API_BASE . "api/memberships?positionId=1&endDate=null"), true)[0];
 $pu = json_decode(file_get_contents($API_BASE . "api/memberships?positionId=19&endDate=null"), true)[0];

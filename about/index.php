@@ -1,5 +1,5 @@
 <?php
-include_once '../partials/api.php';
+include_once '../includes/sg_data_php_driver/api.php';
 
 $bodies = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
 $subbodies = json_decode(file_get_contents($API_BASE . 'api/subbodies' . (isset($_GET['body']) ? "?bodyUniqueId=$_GET[body]" : '')), true);

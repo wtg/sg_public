@@ -1,0 +1,3 @@
+[submodule "includes/sg_data_php_driver"]
+	path = includes/sg_data_php_driver
+	url = https://github.com/justetz/sg_data_php_driver.git
