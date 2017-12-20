@@ -1,8 +1,14 @@
 <?php
-include_once '../includes/sg_data_php_driver/api.php';
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
-$gm = json_decode(file_get_contents($API_BASE . "api/memberships?positionId=1&endDate=null"), true)[0];
-$pu = json_decode(file_get_contents($API_BASE . "api/memberships?positionId=19&endDate=null"), true)[0];
+$gm = Memberships::read([
+    "positionId" => 1,
+    "endDate" => "null"
+])[0];
+$pu = Memberships::read([
+    "positionId" => 23,
+    "endDate" => "null"
+])[0];
 ?>
 <!DOCTYPE html>
 <html>
@@ -84,7 +90,9 @@ $pu = json_decode(file_get_contents($API_BASE . "api/memberships?positionId=19&e
                     As always, you can reach out to the
                     <?=$gm['position']['name']?>, <?=$gm['person']['name']?>, at <a href="mailto:<?=$gm['person']['email']?>"><?=$gm['person']['email']?></a>,
                     and the
-                    <?=$pu['position']['name']?>, <?=$pu['person']['name']?>, at <a href="mailto:<?=$pu['person']['email']?>"><?=$pu['person']['email']?></a>
+                    <?=$pu['position']['name']?>, <?=$pu['person']['name']?>, at <a href="mailto:<?=$pu['person']['email'] ? $pu['person']['email'] : "$pu[personRcsId]@rpi.edu"?>">
+                        <?=$pu['person']['email'] ? $pu['person']['email'] : "$pu[personRcsId]@rpi.edu"?>
+                    </a>
                     if you have any questions, comments, ideas, or concerns.
                 </p>
             </div>

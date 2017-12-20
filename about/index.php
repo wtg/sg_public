@@ -1,8 +1,15 @@
 <?php
-include_once '../includes/sg_data_php_driver/api.php';
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
-$bodies = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
-$subbodies = json_decode(file_get_contents($API_BASE . 'api/subbodies' . (isset($_GET['body']) ? "?bodyUniqueId=$_GET[body]" : '')), true);
+$bodies = Bodies::read();
+
+if(isset($_GET['body'])) {
+    $query = ["bodyUniqueId" => $_GET['body']];
+} else {
+    $query = [];
+}
+
+$subbodies = Subbodies::read($query);
 ?>
 <!DOCTYPE html>
 <html>

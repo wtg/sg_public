@@ -1,7 +1,7 @@
 <?php
 require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
-$bodies = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
+$bodies = Bodies::read();
 ?>
 <footer class="footer">
     <div class="primary-footer container">
@@ -65,7 +65,7 @@ $bodies = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
     <div class="secondary-footer">
         <div class="container">
             <ul>
-                <li><a href="<?=$API_BASE?>">API</a></li>
+                <li><a href="https://data.sg.rpi.edu/">API</a></li>
                 <li><a href="https://admin.sg.rpi.edu/">Log In</a></li>
             </ul>
             <p>Copyright &copy; 2017 &ndash; Rensselaer Union</p>

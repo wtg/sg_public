@@ -1,6 +1,6 @@
 <?php
 include_once '../partials/Parsedown.php';
-include_once '../includes/sg_data_php_driver/api.php';
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
 $Parsedown = new Parsedown();
 

@@ -1,50 +1,57 @@
 <?php
-    include_once '../includes/sg_data_php_driver/api.php';
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
-    $uniqueId = $_GET['uniqueId'];
-    $bodyUniqueId = $_GET['bodyUniqueId'];
+$uniqueId = $_GET['uniqueId'];
+$bodyUniqueId = $_GET['bodyUniqueId'];
 
-    $members = json_decode(file_get_contents($API_BASE . "api/memberships?bodyUniqueId=$bodyUniqueId&sessionUniqueId=$uniqueId&sort=name,-endDate"), true);
-    $otherSessions = json_decode(file_get_contents($API_BASE . "api/sessions?bodyUniqueId=$bodyUniqueId&sort=-name"), true);
+$members = Memberships::read([
+    "bodyUniqueId" => $bodyUniqueId,
+    "sessionUniqueId" => $uniqueId,
+    "sort" => "name,-endDate"
+]);
+$otherSessions = Sessions::read([
+    "bodyUniqueId" => $bodyUniqueId,
+    "sort" => "-name"
+]);
 
-    $sessionTitle = $members[0]['session']['name'];
+$sessionTitle = $members[0]['session']['name'];
 
-    function loadMembers($title, $session, $members, $officersOnly, $votingOnly) {
-        $html = '<section class="row">';
+function loadMembers($title, $session, $members, $officersOnly, $votingOnly) {
+    $html = '<section class="row">';
 
-        $html .= '<div class="col-xs-12"><h2>' . $title . '</h2></div>';
+    $html .= '<div class="col-xs-12"><h2>' . $title . '</h2></div>';
 
-        foreach($members as $m) {
-            if(!$session['active'] || $m['current']) {
-                if($officersOnly && !$m['position']['officer']) {
-                    continue;
-                } else if($votingOnly && !$m['position']['voting']) {
-                    continue;
-                }
-
-                if(isset($m['person']['image'])) {
-                    $image = $m['person']['image'];
-                } else {
-                    $image = "//photos.sg.rpi.edu/headshot_$m[personRcsId].jpg";
-                }
-                $personName = $m['person']['name'];
-
-                $html .= "
-                    <div class=\"col-lg-2 col-md-3 col-sm-4 col-xs-6\">
-                        <a class=\"person-item small\" href=\"/people/member_detail.php?rcsId=$m[personRcsId]\">
-                            <div class=\"person-image\" " . ($image != '' ? "style=\"height: 186.65px; background-image: url('$image')\"" : "style=\"height: 186.65px\"") . "></div>
-                            <div class=\"person-content\">
-                                <h4>$personName</h4>
-                                <p class=\"position\" style=\"font-size: 0.75rem;\">$m[name]</p>
-                            </div>
-                        </a>
-                    </div>
-                ";
+    foreach($members as $m) {
+        if(!$session['active'] || $m['current']) {
+            if($officersOnly && !$m['position']['officer']) {
+                continue;
+            } else if($votingOnly && !$m['position']['voting']) {
+                continue;
             }
-        }
 
-        return $html . '</section>';
+            if(isset($m['person']['image'])) {
+                $image = $m['person']['image'];
+            } else {
+                $image = "//photos.sg.rpi.edu/headshot_$m[personRcsId].jpg";
+            }
+            $personName = $m['person']['name'];
+
+            $html .= "
+                <div class=\"col-lg-2 col-md-3 col-sm-4 col-xs-6\">
+                    <a class=\"person-item small\" href=\"/people/member_detail.php?rcsId=$m[personRcsId]\">
+                        <div class=\"person-image\" " . ($image != '' ? "style=\"height: 186.65px; background-image: url('$image')\"" : "style=\"height: 186.65px\"") . "></div>
+                        <div class=\"person-content\">
+                            <h4>$personName</h4>
+                            <p class=\"position\" style=\"font-size: 0.75rem;\">$m[name]</p>
+                        </div>
+                    </a>
+                </div>
+            ";
+        }
     }
+
+    return $html . '</section>';
+}
 ?>
 
 <!DOCTYPE html>

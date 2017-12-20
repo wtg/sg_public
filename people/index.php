@@ -1,8 +1,12 @@
 <?php
-include_once '../includes/sg_data_php_driver/api.php';
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
-$unionOfficers = json_decode(file_get_contents($API_BASE . "api/positions?presidingOfficer=true"), true);
-$sessions = json_decode(file_get_contents($API_BASE . "api/sessions?active=true"), true);
+$unionOfficers = Positions::read([
+    "presidingOfficer" => "true"
+]);
+$sessions = Sessions::read([
+    "active" => "true"
+]);
 
 ?>
 

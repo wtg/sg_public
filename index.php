@@ -1,6 +1,6 @@
 <?php
 include_once 'partials/Parsedown.php';
-include_once 'includes/sg_data_php_driver/api.php';
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
 date_default_timezone_set('America/New_York');
 
@@ -50,12 +50,12 @@ date_default_timezone_set('America/New_York');
                     foreach($meetings as $m) {
                         if($displayed >= 3) break;
                         if($m['date'] >= date('Y-m-d')) {
-                            echo "<div class='update-item' href='/events'>";
+                            echo "<a class='update-item' href='/events'>";
                             echo "    <div class='update-content' style='min-height: 0'>";
                             echo "         <h4>" . $m['session']['name'] . " &ndash; Meeting #$m[meetingNum]</h4>";
                             echo "         <p class='logistics'>$m[displayDate]</p>";
                             echo "    </div>";
-                            echo "</div>";
+                            echo "</a>";
 
                             $displayed++;
                         }
