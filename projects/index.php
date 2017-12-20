@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <?php require_once '../partials/head.php' ?>
-<?php require_once '../includes/sg_data_php_driver/api.php' ?>
+<?php require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php' ?>
 <body>
     <?php require_once '../partials/nav.php'; ?>
     <main class="container">

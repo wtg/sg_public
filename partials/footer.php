@@ -1,5 +1,5 @@
 <?php
-include_once 'api.php';
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
 $bodies = json_decode(file_get_contents($API_BASE . "api/bodies"), true);
 ?>

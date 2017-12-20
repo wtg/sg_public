@@ -7,3 +7,4 @@ styles/components/*.css
 styles/components/*.min.css
 styles/*.css.map
 .sass-cache
+vendor/
