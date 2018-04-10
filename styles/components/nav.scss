@@ -152,16 +152,16 @@
         .logo {
             float: left;
             display: block;
-            width: 3rem;
+            width: 9.6rem;
             height: 3rem;
             background-image: url('/icon.svg');
-            background-size: contain;
+            background-size: cover;
             margin-left: 15px;
             -webkit-transition: all 0.3s ease;
             transition: all 0.3s ease;
 
             @media screen and (max-width: $small-breakpoint) {
-                width: 2.5rem;
+                width: 8rem;
                 height: 2.5rem;
             }
         }

@@ -66,19 +66,19 @@
                 </ol>
                 <hr>
 
-                <h2>Article V: Director Of The Union</h2>
+                <h2>Article V<br />Director Of The Union</h2>
                     <p class="lead">The Director of the Union shall be employed by the Union to perform duties including the administration of Union activities and funds in accordance with the policies of the Rensselaer Board of Trustees, the Union Constitution, and further legislation of the Executive Board.</p>
                     <p class="lead">In maintaining advisory status, the Director may not veto any Executive Board action but may request the Student Senate to begin impeachment proceedings against any member of the Student Senate or the Executive Board whom he or she feels is fiscally irresponsible in the handling of Union funds.</p>
                     <p class="lead">Should the Director overstep his or her constitutional authority or demonstrate serious financial irresponsibility, a majority of the Executive Board may bring charges against the Director in the name of the Board before the Judicial Board.</p>
                 <p class="lead">The Vice President for Student Life shall act as adviser to the Director and shall inform him or her of Trustee policy.</p>
                 <hr>
 
-                <h2>Article VI: Treasurer Of The Union</h2>
+                <h2>Article VI<br />Treasurer Of The Union</h2>
                 <p class="lead">The Treasurer shall be the Treasurer of Rensselaer.</p>
                 <p class="lead">The Treasurer shall be the custodian of the funds of the Union and shall receive copies of all financial transactions.</p>
                 <hr>
 
-                <h2>Article VII: Organizations</h2>
+                <h2>Article VII<br />Organizations</h2>
                 <p class="lead">The Union shall be governed by a Student Senate, an Executive Board, a Judicial Board, a Graduate Council, and an Undergraduate Council.</p>
                 <ol>
                     <li>It shall be constituted under the authority of the Board of Trustees of Rensselaer.</li>
@@ -175,7 +175,7 @@
                 <p class="lead">The rules contained in the current edition of Robert's Rules of Order shall govern the subordinate bodies of the Rensselaer Union, as defined in the Rensselaer Union Constitution, in all cases to which they are applicable and in which they are not inconsistent with the Rensselaer Union Constitution and any special rules of order the Union or its subordinate bodies may adopt.</p>
                 <hr>
 
-                <h2>Article VIII: Elections</h2>
+                <h2>Article VIII<br />Elections</h2>
                 <h3>Section 1.</h3>
                 <p class="lead">The general elections of the Grand Marshal, the President of the Union, the President of the Undergraduate Council, the elected members of the Sophomore, Junior and Senior Class Councils, the members of the Graduate Council, and all elected members of the Student Senate except those representing the incoming Freshman Class shall be held during the spring semester at a time and place determined by the Student Senate.</p>
 
@@ -250,7 +250,7 @@
                 <p class="lead">To be eligible for election and to hold office, a student must satisfy the eligibility rules established by the Institute and the additional regulations established by the Student Senate.</p>
                 <hr>
 
-                <h2>Article IX: Limitation Of Office</h2>
+                <h2>Article IX<br />Limitation Of Office</h2>
                 <h3>Section 1.</h3>
                 <p class="lead">A candidate for Grand Marshal or President of the Union may simultaneously run for a Senator or Representative position in his or her Class Council or the Graduate Council.</p>
                 <ol>
@@ -267,7 +267,7 @@
                 <p class="lead">No person may run simultaneously for the offices of Grand Marshal and President of the Union. </p>
                 <hr>
 
-                <h2>Article X: Removals</h2>
+                <h2>Article X<br />Removals</h2>
                 <h3>Section 1.</h3>
                 <ol>
                     <li>The Grand Marshal, the President of the Union, or the President of the Undergraduate Council may be removed from office by a petition requiring his or her resignation signed by at least 50 percent of his or her constituents or by a 2/3 vote of his or her constituents voting in a valid removal election.</li>
@@ -298,7 +298,7 @@
                 </ol>
                 <hr>
 
-                <h2>Article XI: Succession</h2>
+                <h2>Article XI<br />Succession</h2>
 
                 <h3>Section 1.</h3>
                 <p class="lead">Should the position of Grand Marshal become vacant, within two weeks the Student Senate shall appoint a new Grand Marshal from within its membership. His or her appointment shall require the approval of 2/3 vote of the Student Senate. The Chairperson of the Judicial Board will preside over this appointment. Until the new Grand Marshal is appointed, the Student Senate by-laws shall dictate who will assume the remaining duties of the Grand Marshal.</p>
@@ -319,7 +319,7 @@
                 <p class="lead">Any vacant Class Senator position shall be filled by a person appointed by their corresponding Class Council.</p>
                 <hr>
 
-                <h2>Article XII: Petitions And Referenda</h2>
+                <h2>Article XII<br />Petitions And Referenda</h2>
                 <h3>Section 1. Referendum.</h3>
                 <ol>
                     <li>A referendum vote, on any matter except amendment of the Union Constitution, shall be held whenever the Student Senate:
@@ -340,7 +340,7 @@
                 <p class="lead">Upon its passage, a referendum shall be binding upon the constituency. The Student Senate shall enact any legislation necessary for its implementation. Unless otherwise provided for in the text of the referendum, it may be rescinded only by a similar referendum.</p>
                 <hr>
 
-                <h2>Article XIII: Amendments</h2>
+                <h2>Article XIII<br />Amendments</h2>
 
                 <h3>Section 1.</h3>
                 <ol>
@@ -369,7 +369,7 @@
                 </ol>
                 <hr>
 
-                <h2>Article XIV: Liability</h2>
+                <h2>Article XIV<br />Liability</h2>
                 <p class="lead">No liability shall be incurred by this Union through its governing bodies, officers, or members unless provision has been made for it. No liability shall be incurred or money spent by any committee, officer, or member of the Union without a requisition from the Executive Board or its duly authorized agent.</p>
             </div>
         </section>
