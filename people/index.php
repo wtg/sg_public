@@ -1,9 +1,28 @@
 <?php
 require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
-$unionOfficers = Positions::read([
-    "presidingOfficer" => "true"
-]);
+$unionOfficers = [];
+$unionOfficers[] = Positions::read([
+    "presidingOfficer" => "true",
+    "name" => "Grand Marshal"
+])[0];
+$unionOfficers[] = Positions::read([
+    "presidingOfficer" => "true",
+    "name" => "President of the Union"
+])[0];
+$unionOfficers[] = Positions::read([
+    "presidingOfficer" => "true",
+    "name" => "Judicial Board Chairperson"
+])[0];
+$unionOfficers[] = Positions::read([
+    "presidingOfficer" => "true",
+    "name" => "Undergraduate President"
+])[0];
+$unionOfficers[] = Positions::read([
+    "presidingOfficer" => "true",
+    "name" => "Graduate Council President"
+])[0];
+
 $sessions = Sessions::read([
     "active" => "true"
 ]);
