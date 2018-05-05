@@ -29,7 +29,7 @@ $position = Positions::getEntry($id);
                         if(isset($m['person']['image'])) {
                             $image = $m['person']['image'];
                         } else {
-                            $image = "//photos.sg.rpi.edu/headshot_$m[personRcsId].jpg";
+                            $image = "//photos.sg.rpi.edu/headshot/$m[personRcsId]?bodyUniqueId=$position[bodyUniqueId]";
                         }
 
                         $val = "<div class=\"col-lg-2 col-md-3 col-sm-4 col-xs-6 col-person\">
