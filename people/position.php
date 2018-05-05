@@ -14,7 +14,11 @@ function sortNewest($a, $b) {
         } else if(!$b['endDate'] && $a['endDate']) {
             return 1;
         } else {
-            return strcmp($a['person']['name'], $b['person']['name']);
+            if($b['endDate'] != $a['endDate']) {
+                return strcmp($b['endDate'], $a['endDate']);
+            } else {
+                return strcmp($a['person']['name'], $b['person']['name']);
+            }
         }
     }
 }
