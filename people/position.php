@@ -5,7 +5,7 @@ $id = $_GET['id'];
 $position = Positions::getEntry($id);
 
 function sortNewest($a, $b) {
-    $startDateCmp = strcmp($a['startDate'], $b['startDate']);
+    $startDateCmp = strcmp($b['startDate'], $a['startDate']);
     if($startDateCmp != 0) {
         return $startDateCmp;
     } else {
