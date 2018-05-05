@@ -3,6 +3,24 @@ require_once realpath($_SERVER["DOCUMENT_ROOT"]) . '/vendor/autoload.php';
 
 $id = $_GET['id'];
 $position = Positions::getEntry($id);
+
+function sortNewest($a, $b) {
+    $startDateCmp = strcmp($a['startDate'], $b['startDate']);
+    if($startDateCmp != 0) {
+        return $startDateCmp;
+    } else {
+        if(!$a['endDate'] && $b['endDate']) {
+            return -1;
+        } else if(!$b['endDate'] && $a['endDate']) {
+            return 1;
+        } else {
+            return strcmp($a['person']['name'], $b['person']['name']);
+        }
+    }
+}
+
+usort($position['memberships'], "sortNewest");
+
 ?>
 <!DOCTYPE html>
 <html>
