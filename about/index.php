@@ -126,6 +126,8 @@ $subbodies = Subbodies::read($query);
                         }
 
                         foreach($subbodies as $s) {
+                            if(!$s['session']['active']) continue;
+                            
                             $sessionName = $s['session']['name'];
                             echo "
                                 <div class='col-lg-4 col-md-6 col-sm-6'>
