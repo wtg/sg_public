@@ -7,7 +7,7 @@ Displays the frontend side of RPI's Student Government Website using [PHP](https
 1. Make a clone of the sg_public repository on your local machine.
 2. Download PHP through [XAMPP for Windows](https://www.apachefriends.org/index.html).
 3. Download [Composer](https://getcomposer.org/), a PHP dependency manager for Windows.
-4. Navigate to the location of your sg_admin repository in a Windows Command Prompt
+4. Navigate to the location of your sg_public repository in a Windows Command Prompt
     - Verify that [Composer](https://getcomposer.org/) is installed by typing `composer -v`
 5. Once inside the project directory, install the proper packages for Composer by running `composer install`
 6. Open up Apache's httpd.conf file through [XAMPP Control Panel](https://www.apachefriends.org/index.html)
@@ -31,7 +31,7 @@ Displays the frontend side of RPI's Student Government Website using [PHP](https
     127.0.0.1 sg_public.wtg
     ```
 9. Start the Apache server through the [XAMPP Control Panel](https://www.apachefriends.org/index.html) by clicking the Start button next to Apache.
-10. Navigate to `http://sg_public.wtg/` in your browser and verify that the Admin site is up.
+10. Navigate to `http://sg_public.wtg/` in your browser and verify that the Public site is up.
 
 ## Installation (macOS)
 
